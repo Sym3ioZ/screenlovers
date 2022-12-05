@@ -46,13 +46,14 @@ header {
       flex-direction: row;
       justify-content: center;
       align-items: center;
-      transition: all 200ms ease-out;
+      transition: all 150ms ease-out;
       & i {
         font-size: 20px;
         margin-right: 10px;
       }
       &:hover {
         cursor: pointer;
+        text-shadow: $primaryColor 0 0 15px;
       }
     }
   }
@@ -61,15 +62,17 @@ header {
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    margin-right: 10px;
     i {
       font-size: 26px;
       margin-right: 15px;
       color: $primaryColor;
       transform: scale(1);
-      transition: all 200ms ease-out;
+      transition: all 150ms ease-out;
       cursor: pointer;
       &:hover {
         transform: scale(1.15);
+        text-shadow: $primaryColor 0 0 15px;
       }
     }
     &__text {
@@ -96,5 +99,6 @@ header {
 
 p {
   color: white;
-  text-align: center;
+  font-size: 30px;
+  margin: 300px;
 }

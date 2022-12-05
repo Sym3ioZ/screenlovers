@@ -11,6 +11,8 @@
   align-items: center;
   z-index: 50;
   background-color: $backgroundColor;
+  opacity: 1;
+  animation: fadeLoader 2000ms 3000ms 1 linear both;
 }
 
 .centerhole {
