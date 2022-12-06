@@ -32,6 +32,6 @@
   </nav>
 </header>
 
-<div>
-  <p>{{ movie }}</p>
+<div *ngIf="uniqueMovie$ | async as movie">
+  <p>{{ movie.id }}</p>
 </div>
