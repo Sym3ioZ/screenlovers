@@ -1,0 +1,9 @@
+<div class="singleMovie" *ngIf="uniqueMovie$ | async as movie">
+  <h3 class="singleMovie__title">{{ movie.title }}</h3>
+  <div class="singleMovie__block">
+    <div class="singleMovie__block__poster">
+      <!-- <img src="{{ APIurl }} " /> -->
+    </div>
+    <div class="singleMovie__block__description">{{ movie.overview }}</div>
+  </div>
+</div>
