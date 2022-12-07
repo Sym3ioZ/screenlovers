@@ -1,6 +1,9 @@
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
+import { registerLocaleData } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import * as fr from '@angular/common/locales/fr';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -9,9 +12,24 @@ import { LoaderComponent } from './loader/loader.component';
 import { SingleMovieComponent } from './single-movie/single-movie.component';
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, LoaderComponent, SingleMovieComponent],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
-  providers: [],
+  declarations: [
+    AppComponent,
+    HeaderComponent,
+    LoaderComponent,
+    SingleMovieComponent,
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    HttpClientModule,
+  ],
+  providers: [{ provide: LOCALE_ID, useValue: 'fr-FR' }],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule {
+  constructor() {
+    registerLocaleData(fr.default);
+  }
+}

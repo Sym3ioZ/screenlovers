@@ -1,26 +1,172 @@
 @import "../../variables";
 
 .singleMovie {
-  position: absolute;
   width: 100%;
-  height: 75%;
-  overflow: hidden;
-  bottom: 0;
-  padding: 0 10px;
   z-index: -2;
+  margin: 150px 0 0 0;
   &__title {
     color: $primaryColor;
-    font-size: 60px;
+    font-size: 80px;
     text-align: center;
-    margin-bottom: 20px;
+  }
+  &__subTitle {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    &__text {
+      text-indent: 0.5em;
+      color: white;
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 24px;
+      font-weight: 500;
+    }
+    span {
+      text-indent: 0.5em;
+      color: white;
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 24px;
+      font-weight: 300;
+    }
   }
   &__block {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    background-color: $primaryColor;
+    padding: 0 75px;
+    position: relative;
+    overflow: hidden;
+    z-index: -2;
+    &__leftPick {
+      position: absolute;
+      top: 25%;
+      left: -55px;
+      background-color: $backgroundColor;
+      border-radius: 50%;
+      width: 100px;
+      height: 50%;
+    }
+    &__rightPick {
+      position: absolute;
+      top: 25%;
+      right: -55px;
+      background-color: $backgroundColor;
+      border-radius: 50%;
+      width: 100px;
+      height: 50%;
+    }
     &__poster {
-      color: white;
+      width: 25%;
+      border-right: dashed 8px $backgroundColor;
+      padding-right: 20px;
+      &__image {
+        width: 100%;
+        padding: 15px 15px 15px 0;
+      }
     }
     &__description {
-      color: white;
-      font-size: 20px;
+      &__overview {
+        width: 100%;
+        color: $backgroundColor;
+        font-size: 22px;
+        font-weight: 700;
+        text-indent: 5em;
+        text-align: justify;
+      }
+      width: 75%;
+      padding: 15px 0 0 25px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      &__production {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        h5 {
+          font-size: 26px;
+          text-align: center;
+          font-weight: 800;
+          margin: 15px 0;
+        }
+        &__producers {
+          width: 100%;
+          display: flex;
+          flex-direction: row;
+          flex-wrap: wrap;
+          align-items: center;
+          justify-content: center;
+          &__list {
+            width: 20%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            img {
+              width: 66%;
+            }
+            p {
+              font-size: 24px;
+              font-weight: 500;
+              text-align: center;
+            }
+          }
+        }
+      }
+      &__countries {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        &__list {
+          display: flex;
+          justify-content: center;
+          img {
+            width: 35%;
+          }
+        }
+      }
+    }
+  }
+  &__crew {
+    width: 100%;
+    padding: 0 15px;
+    margin: 25px 0;
+    &__list {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 25px;
+      &__memberCard {
+        width: 150px;
+        height: 300px;
+        display: flex;
+        flex-direction: column;
+        border: solid 2px $primaryColor;
+        background-color: $primaryColor;
+        margin: 0 25px 25px 0;
+        &__profile {
+          width: 100%;
+        }
+        &__name {
+          margin: 5px 5px 0 5px;
+          color: $backgroundColor;
+          height: 4em;
+          font-size: 18px;
+          text-align: center;
+        }
+      }
+    }
+    h5 {
+      color: $primaryColor;
+      font-size: 26px;
+      font-weight: 800;
+      text-align: center;
     }
   }
 }

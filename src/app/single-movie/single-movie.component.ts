@@ -9,10 +9,12 @@ import { ServicesService } from '../services.service';
 })
 export class SingleMovieComponent implements OnInit {
   uniqueMovie$!: Observable<any>;
-  APIurl: string = 'https://api.themoviedb.org/3/movie/';
+  uniqueMovieCredits$!: Observable<any>;
+  posterUrl: string = 'https://image.tmdb.org/t/p/w500';
   constructor(private service: ServicesService) {}
 
   ngOnInit(): void {
-    this.uniqueMovie$ = this.service.getUniqueMovie(1585);
+    this.uniqueMovie$ = this.service.getUniqueMovie(680);
+    this.uniqueMovieCredits$ = this.service.getUniqueMovieCredits(680);
   }
 }

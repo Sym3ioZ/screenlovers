@@ -1,9 +1,106 @@
 <div class="singleMovie" *ngIf="uniqueMovie$ | async as movie">
   <h3 class="singleMovie__title">{{ movie.title }}</h3>
-  <div class="singleMovie__block">
-    <div class="singleMovie__block__poster">
-      <!-- <img src="{{ APIurl }} " /> -->
+  <div
+    class="singleMovie__subTitle"
+    *ngIf="uniqueMovieCredits$ | async as movieCredits"
+  >
+    <span class="singleMovie__subTitle__from">de </span>
+    <div *ngFor="let movieCrew of movieCredits.crew">
+      <h4
+        class="singleMovie__subTitle__text"
+        *ngIf="movieCrew.job === 'Director'"
+      >
+        {{ movieCrew.name }},
+      </h4>
     </div>
-    <div class="singleMovie__block__description">{{ movie.overview }}</div>
+    <span class="singleMovie__subTitle__date">
+      sorti le {{ movie.release_date | date : "d MMMM yyyy" }}</span
+    >
+  </div>
+  <div class="singleMovie__block">
+    <div class="singleMovie__block__leftPick"></div>
+    <div class="singleMovie__block__rightPick"></div>
+    <div class="singleMovie__block__poster">
+      <img
+        class="singleMovie__block__poster__image"
+        [src]="posterUrl + movie.poster_path"
+      />
+    </div>
+    <div class="singleMovie__block__description">
+      <p class="singleMovie__block__description__overview">
+        {{ movie.overview }}
+      </p>
+      <div class="singleMovie__block__description__production">
+        <h5>Production:</h5>
+        <div class="singleMovie__block__description__production__producers">
+          <div
+            class="singleMovie__block__description__production__producers__list"
+            *ngFor="let producer of movie.production_companies"
+          >
+            <img
+              *ngIf="producer.logo_path"
+              [src]="posterUrl + producer.logo_path"
+              [alt]="producer.name + ' logo'"
+            />
+            <p *ngIf="!producer.logo_path">{{ producer.name }}</p>
+          </div>
+        </div>
+      </div>
+      <div class="singleMovie__block__description__countries">
+        <div
+          class="singleMovie__block__description__countries__list"
+          *ngFor="let country of movie.production_countries"
+        >
+          <img
+            [src]="'../../assets/flags/128x128/' + country.iso_3166_1 + '.png'"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="singleMovie__crew"
+    *ngIf="uniqueMovieCredits$ | async as movieCredits"
+  >
+    <h5>Réalisation:</h5>
+    <div class="singleMovie__crew__list">
+      <div *ngFor="let movieCrew of movieCredits.crew">
+        <div
+          class="singleMovie__crew__list__memberCard"
+          *ngIf="movieCrew.job === 'Director'"
+        >
+          <img
+            class="singleMovie__crew__list__memberCard__profile"
+            [src]="
+              movieCrew.profile_path
+                ? posterUrl + movieCrew.profile_path
+                : '../../assets/default_profile.png'
+            "
+          />
+          <p class="singleMovie__crew__list__memberCard__name">
+            {{ movieCrew.name }}
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <h5>Acteurs:</h5>
+    <div class="singleMovie__crew__list">
+      <div *ngFor="let movieCast of movieCredits.cast">
+        <div class="singleMovie__crew__list__memberCard">
+          <img
+            class="singleMovie__crew__list__memberCard__profile"
+            [src]="
+              movieCast.profile_path
+                ? posterUrl + movieCast.profile_path
+                : '../../assets/default_profile.png'
+            "
+          />
+          <p class="singleMovie__crew__list__memberCard__name">
+            {{ movieCast.name }}
+          </p>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
