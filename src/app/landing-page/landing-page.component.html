@@ -1,0 +1,65 @@
+<div class="landing-page">
+  <div class="landing-page__logo">
+    <img src="../../assets/logo_screenlovers.png" />
+    <h1>(Re)découvrez le cinéma</h1>
+  </div>
+
+  <div class="landing-page__welcomeMessage">
+    <p>
+      Bienvenue sur <strong>SCREENLOVERS</strong>, où néohpytes comme passionnés
+      pourront (re)découvrir des milliers de films.
+      <br />
+      Vous trouverez sur chaque fiche de film de nombreuses informations, telles
+      que le synopsis, la date de sortie, ou encore les évaluations, ainsi que
+      des liens vers les fiches des acteurs, réalisateurs,...
+      <br />
+      En attendant, jetez un oeil à la surprise du jour juste en dessous!<i
+        class="fa-regular fa-hand-point-down anim"
+      ></i>
+    </p>
+  </div>
+
+  <div class="landing-page__randomMovie" *ngIf="randomMovie$ | async as movie">
+    <div class="landing-page__randomMovie__leftPick"></div>
+    <div class="landing-page__randomMovie__rightPick"></div>
+    <div class="landing-page__randomMovie__poster">
+      <img
+        class="landing-page__randomMovie__poster__image"
+        [src]="
+          movie.results[randomNumber].poster_path
+            ? posterUrl + movie.results[randomNumber].poster_path
+            : '../../assets/default_profile.png'
+        "
+      />
+    </div>
+    <div class="landing-page__randomMovie__description">
+      <h3 class="landing-page__randomMovie__description__title">
+        {{ movie.results[randomNumber].title }}
+      </h3>
+      <h4 class="landing-page__randomMovie__description__date">
+        Sorti il y a {{ yearGap }} ans.
+      </h4>
+      <div class="landing-page__randomMovie__description__buttons">
+        <div
+          class="landing-page__randomMovie__description__buttons__unique"
+          (click)="onGetMoviePage(movie.results[randomNumber].id)"
+        >
+          <i class="fa-solid fa-file-lines"></i>
+          <p>Fiche du film</p>
+        </div>
+        <div
+          class="landing-page__randomMovie__description__buttons__unique"
+          (click)="onDiscover()"
+        >
+          <i class="fa-solid fa-clipboard-question"></i>
+          <p>Découvrir un autre film</p>
+        </div>
+        <div class="landing-page__randomMovie__description__buttons__unique">
+          <i class="fa-solid fa-house-chimney-window"></i>
+          <p>Accueil</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+>

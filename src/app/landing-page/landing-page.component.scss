@@ -1,0 +1,137 @@
+@import "../../variables";
+
+.landing-page {
+  width: 100%;
+  margin-top: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  &__logo {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 25px;
+    img {
+      width: 100%;
+    }
+    h1 {
+      color: $primaryColor;
+      font-size: 34px;
+    }
+  }
+  &__welcomeMessage {
+    width: 75%;
+    margin-bottom: 25px;
+    p {
+      width: 100%;
+      color: white;
+      font-size: 22px;
+      text-align: justify;
+    }
+    i {
+      color: $primaryColor;
+      font-size: 26px;
+      transform: translateY(10px);
+    }
+  }
+  &__randomMovie {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    background-color: $primaryColor;
+    padding: 0 75px;
+    position: relative;
+    overflow: hidden;
+    &__leftPick {
+      position: absolute;
+      top: 25%;
+      left: -55px;
+      background-color: $backgroundColor;
+      border-radius: 50%;
+      width: 100px;
+      height: 50%;
+    }
+    &__rightPick {
+      position: absolute;
+      top: 25%;
+      right: -55px;
+      background-color: $backgroundColor;
+      border-radius: 50%;
+      width: 100px;
+      height: 50%;
+    }
+    &__poster {
+      width: 25%;
+      border-right: dashed 8px $backgroundColor;
+      padding-right: 20px;
+      &__image {
+        width: 100%;
+        padding: 15px 15px 15px 0;
+      }
+    }
+    &__description {
+      width: 75%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      &__title {
+        width: 100%;
+        color: $backgroundColor;
+        font-size: 66px;
+        text-align: center;
+      }
+      &__date {
+        width: 100%;
+        color: $backgroundColor;
+        font-size: 40px;
+        text-align: center;
+      }
+      &__buttons {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        margin-bottom: 10%;
+        &__unique {
+          width: 200px;
+          height: 150px;
+          background-color: $backgroundColor;
+          border-radius: 20px;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-around;
+          align-items: center;
+          user-select: none;
+          &:hover {
+            cursor: pointer;
+            i {
+              transform: translateY(5px) scale(1.1);
+              text-shadow: 0 0 7px $primaryColor;
+            }
+            p {
+              text-shadow: 0 0 7px $primaryColor;
+            }
+          }
+          i {
+            font-size: 50px;
+            color: $primaryColor;
+            transform: translateY(0) scale(1);
+            transition: all 200ms ease-in-out;
+          }
+          p {
+            text-align: center;
+            font-size: 22px;
+            font-weight: 600;
+            color: $primaryColor;
+            transition: all 150ms ease-in-out;
+          }
+        }
+      }
+    }
+  }
+}

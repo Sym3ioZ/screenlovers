@@ -10,6 +10,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { LoaderComponent } from './loader/loader.component';
 import { SingleMovieComponent } from './single-movie/single-movie.component';
+import { LandingPageComponent } from './landing-page/landing-page.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { SingleMovieComponent } from './single-movie/single-movie.component';
     HeaderComponent,
     LoaderComponent,
     SingleMovieComponent,
+    LandingPageComponent,
   ],
   imports: [
     BrowserModule,

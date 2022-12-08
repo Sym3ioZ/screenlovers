@@ -64,20 +64,23 @@
   >
     <h5>Réalisation:</h5>
     <div class="singleMovie__crew__list">
-      <div *ngFor="let movieCrew of movieCredits.crew">
+      <div
+        class="singleMovie__crew__list__member"
+        *ngFor="let movieCrew of movieCredits.crew"
+      >
         <div
-          class="singleMovie__crew__list__memberCard"
+          class="singleMovie__crew__list__member__card"
           *ngIf="movieCrew.job === 'Director'"
         >
           <img
-            class="singleMovie__crew__list__memberCard__profile"
+            class="singleMovie__crew__list__member__card__profile"
             [src]="
               movieCrew.profile_path
                 ? posterUrl + movieCrew.profile_path
                 : '../../assets/default_profile.png'
             "
           />
-          <p class="singleMovie__crew__list__memberCard__name">
+          <p class="singleMovie__crew__list__member__card__name">
             {{ movieCrew.name }}
           </p>
         </div>
@@ -86,17 +89,20 @@
 
     <h5>Acteurs:</h5>
     <div class="singleMovie__crew__list">
-      <div *ngFor="let movieCast of movieCredits.cast">
-        <div class="singleMovie__crew__list__memberCard">
+      <div
+        class="singleMovie__crew__list__member"
+        *ngFor="let movieCast of movieCredits.cast"
+      >
+        <div class="singleMovie__crew__list__member__card">
           <img
-            class="singleMovie__crew__list__memberCard__profile"
+            class="singleMovie__crew__list__member__card__profile"
             [src]="
               movieCast.profile_path
                 ? posterUrl + movieCast.profile_path
                 : '../../assets/default_profile.png'
             "
           />
-          <p class="singleMovie__crew__list__memberCard__name">
+          <p class="singleMovie__crew__list__member__card__name">
             {{ movieCast.name }}
           </p>
         </div>
