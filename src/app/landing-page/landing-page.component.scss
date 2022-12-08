@@ -2,41 +2,11 @@
 
 .landing-page {
   width: 100%;
-  margin-top: 150px;
+  margin-top: 200px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  &__logo {
-    width: 40%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 25px;
-    img {
-      width: 100%;
-    }
-    h1 {
-      color: $primaryColor;
-      font-size: 34px;
-    }
-  }
-  &__welcomeMessage {
-    width: 75%;
-    margin-bottom: 25px;
-    p {
-      width: 100%;
-      color: white;
-      font-size: 22px;
-      text-align: justify;
-    }
-    i {
-      color: $primaryColor;
-      font-size: 26px;
-      transform: translateY(10px);
-    }
-  }
   &__randomMovie {
     width: 100%;
     display: flex;
@@ -66,10 +36,13 @@
     &__poster {
       width: 25%;
       border-right: dashed 8px $backgroundColor;
-      padding-right: 20px;
+      padding: 15px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
       &__image {
         width: 100%;
-        padding: 15px 15px 15px 0;
       }
     }
     &__description {

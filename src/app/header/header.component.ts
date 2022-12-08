@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -8,5 +7,15 @@ import { Observable } from 'rxjs';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
+  constructor(private router: Router) {}
+
   ngOnInit(): void {}
+
+  onDiscover() {
+    this.router.navigateByUrl('');
+  }
+
+  onHomePage() {
+    this.router.navigateByUrl('home');
+  }
 }

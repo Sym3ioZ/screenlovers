@@ -25,6 +25,6 @@ export class LandingPageComponent {
   }
 
   onGetMoviePage(movieId: number) {
-    this.router.navigateByUrl(`singlemovie/:${movieId}`);
+    this.router.navigateByUrl(`singlemovie/${movieId}`);
   }
 }

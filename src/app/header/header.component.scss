@@ -29,20 +29,21 @@ header {
   }
 
   .navmenu {
-    width: 66%;
+    width: 75%;
     color: white;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     &__list {
-      width: 50%;
+      width: 60%;
       color: $primaryColor;
       font-size: 24px;
       display: flex;
       flex-direction: row;
       justify-content: space-around;
       list-style-type: none;
+      padding: 0;
       &__unique {
         font-family: "Bungee", cursive;
         display: flex;
@@ -55,6 +56,11 @@ header {
         & i {
           font-size: 20px;
           margin-right: 10px;
+        }
+        &:last-child {
+          i {
+            font-size: 42px;
+          }
         }
         &:hover {
           cursor: pointer;

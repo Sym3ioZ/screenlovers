@@ -16,7 +16,7 @@ export class ServicesService {
 
   getUniqueMovie(movieId: number): Observable<object> {
     return this.http.get<object>(
-      `https://api.themoviedb.org/3/movie/${movieId}?api_key=032445021a055e1fc596f3292981c16d&language=fr-FR&_include_adult=false`
+      `https://api.themoviedb.org/3/movie/${movieId}?api_key=032445021a055e1fc596f3292981c16d&language=fr-FR&include_adult=false`
     );
   }
 

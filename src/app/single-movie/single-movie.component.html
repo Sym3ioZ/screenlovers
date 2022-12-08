@@ -23,15 +23,49 @@
     <div class="singleMovie__block__poster">
       <img
         class="singleMovie__block__poster__image"
-        [src]="posterUrl + movie.poster_path"
+        [src]="
+          movie.poster_path
+            ? posterUrl + movie.poster_path
+            : '../../assets/default_poster.png'
+        "
       />
+      <!-- Determining the star icons to display from the average vote -->
+      <div class="singleMovie__block__poster__rating">
+        <i
+          class="fa-solid fa-star-half"
+          *ngIf="movie.vote_average > 0 && movie.vote_average < 1"
+        ></i>
+        <i class="fa-solid fa-star" *ngIf="movie.vote_average >= 1"></i>
+        <i
+          class="fa-solid fa-star-half"
+          *ngIf="movie.vote_average >= 2 && movie.vote_average < 3"
+        ></i>
+        <i class="fa-solid fa-star" *ngIf="movie.vote_average >= 3"></i>
+        <i
+          class="fa-solid fa-star-half"
+          *ngIf="movie.vote_average > 4 && movie.vote_average < 5"
+        ></i>
+        <i class="fa-solid fa-star" *ngIf="movie.vote_average >= 5"></i>
+        <i
+          class="fa-solid fa-star-half"
+          *ngIf="movie.vote_average > 6 && movie.vote_average < 7"
+        ></i>
+        <i class="fa-solid fa-star" *ngIf="movie.vote_average >= 7"></i>
+        <i
+          class="fa-solid fa-star-half"
+          *ngIf="movie.vote_average > 8 && movie.vote_average < 9"
+        ></i>
+        <i class="fa-solid fa-star" *ngIf="movie.vote_average >= 9"></i>
+      </div>
     </div>
     <div class="singleMovie__block__description">
       <p class="singleMovie__block__description__overview">
         {{ movie.overview }}
       </p>
-      <div class="singleMovie__block__description__production">
-        <h5>Production:</h5>
+      <div
+        class="singleMovie__block__description__production"
+        *ngIf="movie.production_companies.length > 0"
+      >
         <div class="singleMovie__block__description__production__producers">
           <div
             class="singleMovie__block__description__production__producers__list"
@@ -72,14 +106,17 @@
           class="singleMovie__crew__list__member__card"
           *ngIf="movieCrew.job === 'Director'"
         >
-          <img
-            class="singleMovie__crew__list__member__card__profile"
-            [src]="
-              movieCrew.profile_path
-                ? posterUrl + movieCrew.profile_path
-                : '../../assets/default_profile.png'
-            "
-          />
+          <div class="singleMovie__crew__list__member__card__profile">
+            <img
+              class="singleMovie__crew__list__member__card__profile__image"
+              [src]="
+                movieCrew.profile_path
+                  ? posterUrl + movieCrew.profile_path
+                  : '../../assets/default_profile.png'
+              "
+            />
+          </div>
+
           <p class="singleMovie__crew__list__member__card__name">
             {{ movieCrew.name }}
           </p>
@@ -94,14 +131,17 @@
         *ngFor="let movieCast of movieCredits.cast"
       >
         <div class="singleMovie__crew__list__member__card">
-          <img
-            class="singleMovie__crew__list__member__card__profile"
-            [src]="
-              movieCast.profile_path
-                ? posterUrl + movieCast.profile_path
-                : '../../assets/default_profile.png'
-            "
-          />
+          <div class="singleMovie__crew__list__member__card__profile">
+            <img
+              class="singleMovie__crew__list__member__card__profile__image"
+              [src]="
+                movieCast.profile_path
+                  ? posterUrl + movieCast.profile_path
+                  : '../../assets/default_profile.png'
+              "
+            />
+          </div>
+
           <p class="singleMovie__crew__list__member__card__name">
             {{ movieCast.name }}
           </p>

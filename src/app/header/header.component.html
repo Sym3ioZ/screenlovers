@@ -9,7 +9,7 @@
   </div>
   <nav class="navmenu">
     <ul class="navmenu__list">
-      <li class="navmenu__list__unique">
+      <li class="navmenu__list__unique" (click)="onHomePage()">
         <i class="fa-solid fa-ticket"></i>ACCUEIL
       </li>
       <li class="navmenu__list__unique">
@@ -17,6 +17,9 @@
       </li>
       <li class="navmenu__list__unique">
         <i class="fa-solid fa-ticket"></i>CONTACT
+      </li>
+      <li class="navmenu__list__unique" (click)="onDiscover()">
+        <i class="fa-solid fa-circle-question"></i>
       </li>
     </ul>
     <div class="navmenu__searchbar">

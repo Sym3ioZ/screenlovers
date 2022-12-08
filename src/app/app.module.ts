@@ -11,6 +11,8 @@ import { HeaderComponent } from './header/header.component';
 import { LoaderComponent } from './loader/loader.component';
 import { SingleMovieComponent } from './single-movie/single-movie.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
+import { HomePageComponent } from './home-page/home-page.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +21,8 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
     LoaderComponent,
     SingleMovieComponent,
     LandingPageComponent,
+    HomePageComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,

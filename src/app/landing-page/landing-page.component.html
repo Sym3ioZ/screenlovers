@@ -1,24 +1,4 @@
 <div class="landing-page">
-  <div class="landing-page__logo">
-    <img src="../../assets/logo_screenlovers.png" />
-    <h1>(Re)découvrez le cinéma</h1>
-  </div>
-
-  <div class="landing-page__welcomeMessage">
-    <p>
-      Bienvenue sur <strong>SCREENLOVERS</strong>, où néohpytes comme passionnés
-      pourront (re)découvrir des milliers de films.
-      <br />
-      Vous trouverez sur chaque fiche de film de nombreuses informations, telles
-      que le synopsis, la date de sortie, ou encore les évaluations, ainsi que
-      des liens vers les fiches des acteurs, réalisateurs,...
-      <br />
-      En attendant, jetez un oeil à la surprise du jour juste en dessous!<i
-        class="fa-regular fa-hand-point-down anim"
-      ></i>
-    </p>
-  </div>
-
   <div class="landing-page__randomMovie" *ngIf="randomMovie$ | async as movie">
     <div class="landing-page__randomMovie__leftPick"></div>
     <div class="landing-page__randomMovie__rightPick"></div>
@@ -28,7 +8,7 @@
         [src]="
           movie.results[randomNumber].poster_path
             ? posterUrl + movie.results[randomNumber].poster_path
-            : '../../assets/default_profile.png'
+            : '../../assets/default_poster.png'
         "
       />
     </div>
