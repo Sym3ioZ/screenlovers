@@ -9,6 +9,9 @@
 body {
   background-color: $backgroundColor;
   margin: 0;
+  position: relative;
+  min-height: 100vh;
+  box-shadow: 0px -100px 25px -60px $primaryColor inset;
 }
 
 strong {

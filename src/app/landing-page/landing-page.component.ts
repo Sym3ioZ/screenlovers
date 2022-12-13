@@ -10,7 +10,7 @@ import { ServicesService } from '../services.service';
 })
 export class LandingPageComponent {
   randomMovie$!: Observable<any>;
-  randomNumber: number = Math.floor(Math.random() * 20);
+  randomNumber: number = Math.floor(Math.random() * 10);
   yearGap!: number;
   posterUrl: string = 'https://image.tmdb.org/t/p/w500';
   constructor(private service: ServicesService, private router: Router) {}

@@ -4,17 +4,8 @@
     class="singleMovie__subTitle"
     *ngIf="uniqueMovieCredits$ | async as movieCredits"
   >
-    <span class="singleMovie__subTitle__from">de </span>
-    <div *ngFor="let movieCrew of movieCredits.crew">
-      <h4
-        class="singleMovie__subTitle__text"
-        *ngIf="movieCrew.job === 'Director'"
-      >
-        {{ movieCrew.name }},
-      </h4>
-    </div>
     <span class="singleMovie__subTitle__date">
-      sorti le {{ movie.release_date | date : "d MMMM yyyy" }}</span
+      sortie le: {{ movie.release_date | date : "d MMMM yyyy" }}</span
     >
   </div>
   <div class="singleMovie__block">
@@ -89,48 +80,61 @@
             [src]="'../../assets/flags/128x128/' + country.iso_3166_1 + '.png'"
           />
         </div>
+        <div class="singleMovie__block__description__countries__genres">
+          <h6 *ngFor="let genre of movie.genres">{{ genre.name }}</h6>
+        </div>
       </div>
     </div>
   </div>
+
   <div
     class="singleMovie__crew"
     *ngIf="uniqueMovieCredits$ | async as movieCredits"
   >
     <h5>Réalisation:</h5>
-    <div class="singleMovie__crew__list">
+    <div
+      class="singleMovie__crew__list"
+      *ngIf="uniqueMovieCrew$ | async as movieCrew"
+    >
       <div
         class="singleMovie__crew__list__member"
-        *ngFor="let movieCrew of movieCredits.crew"
+        *ngFor="let movieCrewMember of movieCrew; let i = index"
       >
         <div
           class="singleMovie__crew__list__member__card"
-          *ngIf="movieCrew.job === 'Director'"
+          *ngIf="crewToggle ? i < 100 : i < 5"
         >
           <div class="singleMovie__crew__list__member__card__profile">
             <img
               class="singleMovie__crew__list__member__card__profile__image"
               [src]="
-                movieCrew.profile_path
-                  ? posterUrl + movieCrew.profile_path
+                movieCrewMember.profile_path
+                  ? posterUrl + movieCrewMember.profile_path
                   : '../../assets/default_profile.png'
               "
             />
           </div>
 
           <p class="singleMovie__crew__list__member__card__name">
-            {{ movieCrew.name }}
+            {{ movieCrewMember.name }}
           </p>
         </div>
       </div>
+      <p class="seeMore" (click)="seeMoreCrew()" *ngIf="movieCrew.length > 5">
+        {{ crewToggle ? "Voir moins..." : "Voir plus..." }}
+      </p>
     </div>
 
     <h5>Acteurs:</h5>
     <div class="singleMovie__crew__list">
       <div
         class="singleMovie__crew__list__member"
-        *ngFor="let movieCast of movieCredits.cast"
+        *ngFor="let movieCast of movieCredits.cast; let i = index"
       >
-        <div class="singleMovie__crew__list__member__card">
+        <div
+          class="singleMovie__crew__list__member__card"
+          *ngIf="castToggle ? i < 100 : i < 5"
+        >
           <div class="singleMovie__crew__list__member__card__profile">
             <img
               class="singleMovie__crew__list__member__card__profile__image"
@@ -147,6 +151,9 @@
           </p>
         </div>
       </div>
+      <p class="seeMore" (click)="seeMoreCast()">
+        {{ castToggle ? "Voir moins..." : "Voir plus..." }}
+      </p>
     </div>
   </div>
 </div>

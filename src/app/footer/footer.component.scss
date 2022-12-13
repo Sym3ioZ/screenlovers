@@ -1,11 +1,14 @@
 @import "../../variables";
 
-.navmenu {
+footer {
   width: 100%;
   position: absolute;
   bottom: 0;
-  background-color: $primaryColor;
-  border-radius: 500px 500px 0 0;
+}
+.navmenu {
+  width: 100%;
+  // border-radius: 500px 500px 0 0;
+  // box-shadow: inset 0 0 15px $primaryColor;
   &__list {
     display: flex;
     flex-direction: row;

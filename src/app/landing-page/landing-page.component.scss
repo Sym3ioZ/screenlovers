@@ -2,7 +2,7 @@
 
 .landing-page {
   width: 100%;
-  margin-top: 200px;
+  padding-top: 200px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -73,16 +73,20 @@
         &__unique {
           width: 200px;
           height: 150px;
-          background-color: $backgroundColor;
+          // background-color: $backgroundColor;
+          border: 5px solid $backgroundColor;
           border-radius: 20px;
           display: flex;
           flex-direction: column;
           justify-content: space-around;
           align-items: center;
           user-select: none;
+          transition: all 100ms linear;
           &:hover {
             cursor: pointer;
+            background-color: $backgroundColor;
             i {
+              color: $primaryColor;
               transform: translateY(5px) scale(1.1);
               text-shadow: 0 0 7px $primaryColor;
             }
@@ -92,16 +96,16 @@
           }
           i {
             font-size: 50px;
-            color: $primaryColor;
+            color: $backgroundColor;
             transform: translateY(0) scale(1);
-            transition: all 200ms ease-in-out;
+            transition: all 100ms linear;
           }
           p {
             text-align: center;
-            font-size: 22px;
+            font-size: 20px;
             font-weight: 600;
             color: $primaryColor;
-            transition: all 150ms ease-in-out;
+            transition: all 100ms linear;
           }
         }
       }

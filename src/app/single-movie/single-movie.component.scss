@@ -3,7 +3,7 @@
 .singleMovie {
   width: 100%;
   z-index: -2;
-  margin: 150px 0 0 0;
+  padding: 150px 0 150px 0;
   &__title {
     color: $primaryColor;
     font-size: 80px;
@@ -67,9 +67,6 @@
       align-items: center;
       &__image {
         width: 100%;
-        &:hover {
-          cursor: pointer;
-        }
       }
       &__rating {
         display: flex;
@@ -94,6 +91,7 @@
         text-indent: 5em;
         text-align: justify;
       }
+
       width: 75%;
       padding: 15px 0 0 25px;
       display: flex;
@@ -113,7 +111,7 @@
           align-items: center;
           justify-content: space-around;
           &__list {
-            width: 10%;
+            width: 15%;
             display: flex;
             flex-direction: row;
             justify-content: center;
@@ -121,7 +119,7 @@
               width: 100%;
             }
             p {
-              font-size: 20px;
+              font-size: 18px;
               font-weight: 500;
               text-align: center;
             }
@@ -140,6 +138,18 @@
             width: 35%;
           }
         }
+        &__genres {
+          width: 100%;
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: space-around;
+          h6 {
+            font-size: 26px;
+            color: $backgroundColor;
+            font-weight: 600;
+          }
+        }
       }
     }
   }
@@ -152,8 +162,19 @@
       display: flex;
       flex-direction: row;
       justify-content: left;
+      align-items: center;
       flex-wrap: wrap;
       margin-bottom: 25px;
+      .seeMore {
+        color: $primaryColor;
+        transform: scale(1);
+        transition: all 100ms ease-in-out;
+        &:hover {
+          cursor: pointer;
+          text-shadow: $primaryColor 0 0 15px;
+          transform: scale(1.1);
+        }
+      }
       &__member {
         &__card {
           width: 150px;
