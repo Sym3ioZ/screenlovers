@@ -87,24 +87,26 @@
             i {
               color: $primaryColor;
               transform: translateY(5px) scale(1.1);
-              text-shadow: 0 0 7px $primaryColor;
+              text-shadow: 0 0 10px $primaryColor;
             }
             p {
-              text-shadow: 0 0 7px $primaryColor;
+              text-shadow: 0 0 25px $primaryColor;
+              opacity: 1;
             }
           }
           i {
             font-size: 50px;
             color: $backgroundColor;
             transform: translateY(0) scale(1);
-            transition: all 100ms linear;
+            transition: all 150ms linear;
           }
           p {
             text-align: center;
             font-size: 20px;
             font-weight: 600;
             color: $primaryColor;
-            transition: all 100ms linear;
+            opacity: 0;
+            transition: all 200ms 150ms linear;
           }
         }
       }

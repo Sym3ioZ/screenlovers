@@ -81,6 +81,7 @@
           background-color: $backgroundColor;
           font-size: 24px;
           color: $primaryColor;
+          text-shadow: 0 0 5px $primaryColor;
           margin: 0 10px;
           padding: 5px;
         }
