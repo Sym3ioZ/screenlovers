@@ -6,15 +6,15 @@ import { Router } from '@angular/router';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent {
   constructor(private router: Router) {}
 
-  ngOnInit(): void {}
-
+  // On clicking ? link
   onDiscover() {
     this.router.navigateByUrl('');
   }
 
+  // On clicking Home link
   onHomePage() {
     this.router.navigateByUrl('home');
   }

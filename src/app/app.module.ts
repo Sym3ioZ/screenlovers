@@ -36,6 +36,7 @@ import { FooterComponent } from './footer/footer.component';
 })
 export class AppModule {
   constructor() {
+    // Defining FR as default locale
     registerLocaleData(fr.default);
   }
 }

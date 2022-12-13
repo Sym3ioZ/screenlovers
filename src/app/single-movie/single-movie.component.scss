@@ -4,6 +4,7 @@
   width: 100%;
   z-index: -2;
   padding: 150px 0 150px 0;
+
   &__title {
     color: $primaryColor;
     font-size: 80px;
@@ -31,6 +32,7 @@
       font-weight: 300;
     }
   }
+
   &__block {
     width: 100%;
     display: flex;
@@ -39,6 +41,7 @@
     padding: 0 75px;
     position: relative;
     overflow: hidden;
+
     &__leftPick {
       position: absolute;
       top: 25%;
@@ -57,6 +60,7 @@
       width: 100px;
       height: 50%;
     }
+
     &__poster {
       width: 25%;
       border-right: dashed 8px $backgroundColor;
@@ -82,6 +86,7 @@
         }
       }
     }
+
     &__description {
       &__overview {
         width: 100%;
@@ -91,7 +96,6 @@
         text-indent: 5em;
         text-align: justify;
       }
-
       width: 75%;
       padding: 15px 0 0 25px;
       display: flex;
@@ -153,6 +157,7 @@
       }
     }
   }
+
   &__crew {
     width: 100%;
     padding: 0 15px;

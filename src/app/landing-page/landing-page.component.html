@@ -1,7 +1,9 @@
 <div class="landing-page">
+  <!-- Designing ticket shaped movie presentation -->
   <div class="landing-page__randomMovie" *ngIf="randomMovie$ | async as movie">
     <div class="landing-page__randomMovie__leftPick"></div>
     <div class="landing-page__randomMovie__rightPick"></div>
+    <!-- Movie poster on the left side of the ticket -->
     <div class="landing-page__randomMovie__poster">
       <img
         class="landing-page__randomMovie__poster__image"
@@ -12,6 +14,7 @@
         "
       />
     </div>
+    <!-- Short description (title, release date) -->
     <div class="landing-page__randomMovie__description">
       <h3 class="landing-page__randomMovie__description__title">
         {{ movie.results[randomNumber].title }}
@@ -19,7 +22,9 @@
       <h4 class="landing-page__randomMovie__description__date">
         Sorti il y a {{ yearGap }} ans.
       </h4>
+      <!-- Buttons to access quick links -->
       <div class="landing-page__randomMovie__description__buttons">
+        <!-- Access to the single movie page associated to the featured movie -->
         <div
           class="landing-page__randomMovie__description__buttons__unique"
           (click)="onGetMoviePage(movie.results[randomNumber].id)"
@@ -27,6 +32,7 @@
           <i class="fa-solid fa-file-lines"></i>
           <p>Fiche du film</p>
         </div>
+        <!-- Access to another random movie on this same page -->
         <div
           class="landing-page__randomMovie__description__buttons__unique"
           (click)="onDiscover()"
@@ -34,6 +40,7 @@
           <i class="fa-solid fa-clipboard-question"></i>
           <p>Découvrir un autre film</p>
         </div>
+        <!-- Access to the homepage -->
         <div class="landing-page__randomMovie__description__buttons__unique">
           <i class="fa-solid fa-house-chimney-window"></i>
           <p>Accueil</p>

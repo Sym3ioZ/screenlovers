@@ -21,15 +21,3 @@
     transform: scale(0) translateX(200vw);
   }
 }
-
-@keyframes fingerDown {
-  0% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(50px);
-  }
-  100% {
-    transform: translateY(0);
-  }
-}

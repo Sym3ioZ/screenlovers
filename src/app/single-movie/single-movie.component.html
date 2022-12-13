@@ -1,4 +1,5 @@
 <div class="singleMovie" *ngIf="uniqueMovie$ | async as movie">
+  <!-- Movie title and release date -->
   <h3 class="singleMovie__title">{{ movie.title }}</h3>
   <div
     class="singleMovie__subTitle"
@@ -8,9 +9,11 @@
       sortie le: {{ movie.release_date | date : "d MMMM yyyy" }}</span
     >
   </div>
+  <!-- Main movie features (with the ticket design) -->
   <div class="singleMovie__block">
     <div class="singleMovie__block__leftPick"></div>
     <div class="singleMovie__block__rightPick"></div>
+
     <div class="singleMovie__block__poster">
       <img
         class="singleMovie__block__poster__image"
@@ -49,10 +52,13 @@
         <i class="fa-solid fa-star" *ngIf="movie.vote_average >= 9"></i>
       </div>
     </div>
+    <!-- Movie description -->
     <div class="singleMovie__block__description">
+      <!-- Movie overview (if available) -->
       <p class="singleMovie__block__description__overview">
         {{ movie.overview }}
       </p>
+      <!-- Movie production companies (if available) -->
       <div
         class="singleMovie__block__description__production"
         *ngIf="movie.production_companies.length > 0"
@@ -62,6 +68,7 @@
             class="singleMovie__block__description__production__producers__list"
             *ngFor="let producer of movie.production_companies"
           >
+            <!-- If no logo is available, displays only the production company name -->
             <img
               *ngIf="producer.logo_path"
               [src]="posterUrl + producer.logo_path"
@@ -71,6 +78,7 @@
           </div>
         </div>
       </div>
+      <!-- Displays production countries (with flags) and genres associated to the movie -->
       <div class="singleMovie__block__description__countries">
         <div
           class="singleMovie__block__description__countries__list"
@@ -87,6 +95,7 @@
     </div>
   </div>
 
+  <!-- Displays directors and actors -->
   <div
     class="singleMovie__crew"
     *ngIf="uniqueMovieCredits$ | async as movieCredits"
@@ -100,6 +109,7 @@
         class="singleMovie__crew__list__member"
         *ngFor="let movieCrewMember of movieCrew; let i = index"
       >
+        <!-- Limiting display to 5 members, modified by clicking the crew toggle link -->
         <div
           class="singleMovie__crew__list__member__card"
           *ngIf="crewToggle ? i < 100 : i < 5"
@@ -120,6 +130,7 @@
           </p>
         </div>
       </div>
+      <!-- Crew toggle link, displayed only if there's more than 5 directors -->
       <p class="seeMore" (click)="seeMoreCrew()" *ngIf="movieCrew.length > 5">
         {{ crewToggle ? "Voir moins..." : "Voir plus..." }}
       </p>
@@ -131,6 +142,7 @@
         class="singleMovie__crew__list__member"
         *ngFor="let movieCast of movieCredits.cast; let i = index"
       >
+        <!-- Same as directors, displaying only 5 members (toggled by castToggle) -->
         <div
           class="singleMovie__crew__list__member__card"
           *ngIf="castToggle ? i < 100 : i < 5"
@@ -151,6 +163,7 @@
           </p>
         </div>
       </div>
+      <!-- Link to toggle actors display (from 5 to all) -->
       <p class="seeMore" (click)="seeMoreCast()">
         {{ castToggle ? "Voir moins..." : "Voir plus..." }}
       </p>
