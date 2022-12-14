@@ -2,20 +2,34 @@
 
 header {
   width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
   flex-direction: row;
   position: fixed;
   top: 0;
+  -webkit-backdrop-filter: blur(7px);
   backdrop-filter: blur(7px);
   background-color: $backgroundColorA;
+  -webkit-box-shadow: 0px 3px 15px 2px $primaryColor;
   box-shadow: 0px 3px 15px 2px $primaryColor;
   overflow: hidden;
   z-index: 10;
 
   .logo {
     width: 33%;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
     &__image {
       width: 100%;
@@ -31,27 +45,55 @@ header {
   .navmenu {
     width: 75%;
     color: white;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
     flex-direction: row;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
     justify-content: space-between;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
     &__list {
       width: 60%;
       color: $primaryColor;
       font-size: 24px;
+      display: -webkit-box;
+      display: -ms-flexbox;
       display: flex;
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: row;
       flex-direction: row;
+      -ms-flex-pack: distribute;
       justify-content: space-around;
       list-style-type: none;
       padding: 0;
       &__unique {
         font-family: "Bungee", cursive;
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: row;
         flex-direction: row;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
         justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
         align-items: center;
         width: 30%;
+        -webkit-transform: scale(1);
+        -ms-transform: scale(1);
         transform: scale(1);
+        -webkit-transition: all 150ms ease-out;
+        -o-transition: all 150ms ease-out;
         transition: all 150ms ease-out;
         & i {
           font-size: 20px;
@@ -65,24 +107,41 @@ header {
         &:hover {
           cursor: pointer;
           text-shadow: $primaryColor 0 0 15px;
+          -webkit-transform: scale(1.15);
+          -ms-transform: scale(1.15);
           transform: scale(1.15);
         }
       }
     }
     &__searchbar {
+      display: -webkit-box;
+      display: -ms-flexbox;
       display: flex;
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: row;
       flex-direction: row;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
       justify-content: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
       align-items: center;
       margin-right: 10px;
       i {
         font-size: 26px;
         margin-right: 15px;
         color: $primaryColor;
+        -webkit-transform: scale(1);
+        -ms-transform: scale(1);
         transform: scale(1);
+        -webkit-transition: all 150ms ease-out;
+        -o-transition: all 150ms ease-out;
         transition: all 150ms ease-out;
         cursor: pointer;
         &:hover {
+          -webkit-transform: scale(1.15);
+          -ms-transform: scale(1.15);
           transform: scale(1.15);
           text-shadow: $primaryColor 0 0 15px;
         }
@@ -94,15 +153,28 @@ header {
         border-radius: 20px;
         background-color: transparent;
         padding: 3px 0 3px 10px;
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
         flex-direction: column;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
         justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
         align-items: center;
         font-size: 24px;
         color: $primaryColor;
+        -webkit-box-shadow: 0px 0px 0px 0px rgba(255, 211, 53, 1);
         box-shadow: 0px 0px 0px 0px rgba(255, 211, 53, 1);
+        -webkit-transition: all 200ms ease-out;
+        -o-transition: all 200ms ease-out;
         transition: all 200ms ease-out;
         &:focus {
+          -webkit-box-shadow: 0px 0px 10px 2px rgba(255, 211, 53, 1);
           box-shadow: 0px 0px 10px 2px rgba(255, 211, 53, 1);
         }
       }

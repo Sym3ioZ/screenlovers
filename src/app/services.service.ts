@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { map, Observable } from 'rxjs';
+import { tap, map, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -37,6 +37,26 @@ export class ServicesService {
           (element: { job: string }) => element.job === 'Director'
         )
       )
+    );
+  }
+
+  getUniqueMovieWriters(movieId: number): Observable<any> {
+    // Fetching TMDB API to retrieve credits and map them to get an array with only the writers
+    return this.getUniqueMovieCredits(movieId).pipe(
+      map((array) => array.crew),
+      map((crewArray) =>
+        crewArray.filter(
+          (element: { job: string }) =>
+            element.job === 'Writer' ||
+            element.job === 'Story' ||
+            element.job === 'Screenplay'
+        )
+      ),
+      map((value) => {
+        console.log(value);
+        if (value.length === 0) return null;
+        else return value;
+      })
     );
   }
 

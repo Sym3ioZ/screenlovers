@@ -1,6 +1,7 @@
 @import "./variables";
 
 * {
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
   font-family: "Sono", monospace;
   margin: 0;
@@ -12,7 +13,12 @@ body {
   margin: 0;
   position: relative;
   min-height: 100vh;
-  box-shadow: 0px -100px 25px -60px $primaryColor inset;
+  -webkit-box-shadow: 0px -100px 25px -60px $primaryColor inset;
+  box-shadow: 0px -100px 25px -75px $primaryColor inset;
+  // Firefox custom scrollbar
+  scrollbar-width: thin;
+  scrollbar-color: $primaryColor $backgroundColor;
+  // Webkit custom scrollbar
   &::-webkit-scrollbar {
     width: 15px;
   }
@@ -22,6 +28,7 @@ body {
   &::-webkit-scrollbar-thumb {
     background-color: $backgroundColor;
     border: 3px solid $primaryColor;
+    -webkit-box-shadow: inset 0 0 5px $primaryColor;
     box-shadow: inset 0 0 5px $primaryColor;
   }
 }
