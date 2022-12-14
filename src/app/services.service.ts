@@ -47,13 +47,10 @@ export class ServicesService {
       map((crewArray) =>
         crewArray.filter(
           (element: { job: string }) =>
-            element.job === 'Writer' ||
-            element.job === 'Story' ||
-            element.job === 'Screenplay'
+            element.job === 'Writer' || element.job === 'Story'
         )
       ),
       map((value) => {
-        console.log(value);
         if (value.length === 0) return null;
         else return value;
       })
@@ -88,5 +85,37 @@ export class ServicesService {
     return this.http.get<object>(
       `https://api.themoviedb.org/3/discover/movie?api_key=032445021a055e1fc596f3292981c16d&language=fr-FR&primary_release_date.gte=${this.randomPreDate}&primary_release_date.lte=${this.randomPostDate}&vote_average.gte=7&include_adult=false`
     );
+  }
+
+  getUniqueMovieTrailer(movieId: number): Observable<any> {
+    return this.http
+      .get<any>(
+        `https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=032445021a055e1fc596f3292981c16d&language=fr-FR`
+      )
+      .pipe(
+        map((obj) => obj.results),
+        map((array) =>
+          array.filter(
+            (element: { type: string }) => element.type === 'Trailer'
+          )
+        ),
+        tap((value) => console.log(value))
+      );
+  }
+
+  getUniqueMoviePosters(movieId: number): Observable<any> {
+    return this.http
+      .get<any>(
+        `https://api.themoviedb.org/3/movie/${movieId}/images?api_key=032445021a055e1fc596f3292981c16d`
+      )
+      .pipe(map((obj) => obj.posters));
+  }
+
+  getUniqueMovieWallpapers(movieId: number): Observable<any> {
+    return this.http
+      .get<any>(
+        `https://api.themoviedb.org/3/movie/${movieId}/images?api_key=032445021a055e1fc596f3292981c16d`
+      )
+      .pipe(map((obj) => obj.backdrops));
   }
 }

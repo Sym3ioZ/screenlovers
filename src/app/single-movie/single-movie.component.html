@@ -228,4 +228,99 @@
       </p>
     </div>
   </div>
+
+  <!-- Media block -->
+  <div class="singleMovie__media">
+    <h5>Médias:</h5>
+    <div class="singleMovie__media__block">
+      <div class="singleMovie__media__block__tabsBlock">
+        <div
+          class="singleMovie__media__block__tabsBlock__tab"
+          (click)="tabToggle('trailer')"
+          [ngClass]="
+            trailerToggle
+              ? 'singleMovie__media__block__tabsBlock__tab__active'
+              : 'singleMovie__media__block__tabsBlock__tab'
+          "
+        >
+          Bande-Annonce
+        </div>
+        <div
+          class="singleMovie__media__block__tabsBlock__tab"
+          (click)="tabToggle('posters')"
+          [ngClass]="
+            postersToggle
+              ? 'singleMovie__media__block__tabsBlock__tab__active'
+              : 'singleMovie__media__block__tabsBlock__tab'
+          "
+        >
+          Affiches
+        </div>
+        <div
+          class="singleMovie__media__block__tabsBlock__tab"
+          (click)="tabToggle('wallpapers')"
+          [ngClass]="
+            wallpapersToggle
+              ? 'singleMovie__media__block__tabsBlock__tab__active'
+              : 'singleMovie__media__block__tabsBlock__tab'
+          "
+        >
+          Fonds d'écran
+        </div>
+      </div>
+      <div class="singleMovie__media__block__content">
+        <div
+          class="singleMovie__media__block__content__trailer"
+          *ngIf="uniqueMovieTrailer$ | async as movieTrailer"
+          [ngClass]="
+            trailerToggle
+              ? 'singleMovie__media__block__content__trailer'
+              : 'singleMovie__media__block__content__trailer__inactive'
+          "
+        >
+          <iframe
+            [src]="
+              movieTrailer[0].site === 'YouTube'
+                ? (trailerUrl + movieTrailer[0].key | safe)
+                : (posterUrl + movieTrailer[0].key | safe)
+            "
+            frameBorder="0"
+            allowfullscreen
+          ></iframe>
+        </div>
+        <div
+          class="singleMovie__media__block__content__posters"
+          *ngIf="uniqueMoviePosters$ | async as moviePosters"
+          [ngClass]="
+            postersToggle
+              ? 'singleMovie__media__block__content__posters'
+              : 'singleMovie__media__block__content__posters__inactive'
+          "
+        >
+          <div
+            *ngFor="let poster of moviePosters"
+            class="singleMovie__media__block__content__posters__unique"
+          >
+            <img [src]="posterUrl + poster.file_path" />
+          </div>
+        </div>
+        <div
+          class="singleMovie__media__block__content__wallpapers"
+          *ngIf="uniqueMovieWallpapers$ | async as movieWallpapers"
+          [ngClass]="
+            wallpapersToggle
+              ? 'singleMovie__media__block__content__wallpapers'
+              : 'singleMovie__media__block__content__wallpapers__inactive'
+          "
+        >
+          <div
+            *ngFor="let wallpaper of movieWallpapers"
+            class="singleMovie__media__block__content__wallpapers__unique"
+          >
+            <img [src]="posterUrl + wallpaper.file_path" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

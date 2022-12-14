@@ -13,6 +13,8 @@ import { SingleMovieComponent } from './single-movie/single-movie.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { FooterComponent } from './footer/footer.component';
+import { SafePipe } from './safe.pipe';
+import { ViewImageComponent } from './view-image/view-image.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +25,8 @@ import { FooterComponent } from './footer/footer.component';
     LandingPageComponent,
     HomePageComponent,
     FooterComponent,
+    SafePipe,
+    ViewImageComponent,
   ],
   imports: [
     BrowserModule,
@@ -36,7 +40,6 @@ import { FooterComponent } from './footer/footer.component';
 })
 export class AppModule {
   constructor() {
-    // Defining FR as default locale
     registerLocaleData(fr.default);
   }
 }
