@@ -25,6 +25,54 @@
 
   <!-- Featuring trending movies -->
   <div class="home__trending">
-    <h3>TRENDING</h3>
+    <h3>TRENDING MOVIES</h3>
+    <div
+      class="home__trending__content"
+      *ngIf="trendingMovies$ | async as trending"
+    >
+      <div class="home__trending__content__bar"></div>
+      <div class="home__trending__content__list">
+        <div
+          class="home__trending__content__list__unique"
+          *ngFor="let movie of trending"
+        >
+          <div class="home__trending__content__list__unique__poster">
+            <img
+              [src]="posterUrl + movie.poster_path"
+              class="home__trending__content__list__unique__poster__image"
+            />
+          </div>
+          <p class="home__trending__content__list__unique__name">
+            {{ movie.title }}
+          </p>
+        </div>
+      </div>
+      <div class="home__trending__content__bar"></div>
+    </div>
+
+    <h3>TRENDING PEOPLE</h3>
+    <div
+      class="home__trending__content"
+      *ngIf="trendingPeople$ | async as trending"
+    >
+      <div class="home__trending__content__bar"></div>
+      <div class="home__trending__content__list">
+        <div
+          class="home__trending__content__list__unique"
+          *ngFor="let people of trending"
+        >
+          <div class="home__trending__content__list__unique__poster">
+            <img
+              [src]="posterUrl + people.profile_path"
+              class="home__trending__content__list__unique__poster__image"
+            />
+          </div>
+          <p class="home__trending__content__list__unique__name">
+            {{ people.name }}
+          </p>
+        </div>
+      </div>
+      <div class="home__trending__content__bar"></div>
+    </div>
   </div>
 </div>

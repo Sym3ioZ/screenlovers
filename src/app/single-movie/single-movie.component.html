@@ -330,7 +330,12 @@
             *ngFor="let wallpaper of movieWallpapers"
             class="singleMovie__media__block__content__wallpapers__unique"
           >
-            <img [src]="posterUrl + wallpaper.file_path" />
+            <img
+              [src]="posterUrl + wallpaper.file_path"
+              [routerLink]="
+                '/viewimage/' + movie.id + '/' + wallpaper.file_path
+              "
+            />
           </div>
           <span *ngIf="movieWallpapers.length <= 0"
             >Aucun fond d'écran disponible</span

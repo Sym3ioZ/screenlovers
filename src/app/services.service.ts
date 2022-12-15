@@ -118,4 +118,39 @@ export class ServicesService {
       )
       .pipe(map((obj) => obj.backdrops));
   }
+
+  getTrendingMovies(): Observable<any> {
+    return this.http
+      .get<any>(
+        'https://api.themoviedb.org/3/trending/movie/day?api_key=032445021a055e1fc596f3292981c16d&language=fr'
+      )
+      .pipe(
+        map((obj) => obj.results),
+        map((results) => {
+          let array = [];
+          for (let i = 0; i < 9; i++) {
+            array.push(results[i]);
+          }
+          return array;
+        })
+      );
+  }
+
+  getTrendingPeople(): Observable<any> {
+    return this.http
+      .get<any>(
+        'https://api.themoviedb.org/3/trending/person/day?api_key=032445021a055e1fc596f3292981c16d'
+      )
+      .pipe(
+        map((obj) => obj.results),
+        tap((value) => console.log(value)),
+        map((results) => {
+          let array = [];
+          for (let i = 0; i < 9; i++) {
+            array.push(results[i]);
+          }
+          return array;
+        })
+      );
+  }
 }
