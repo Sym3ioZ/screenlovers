@@ -9,7 +9,7 @@ const routes: Routes = [
   { path: '', component: LandingPageComponent },
   { path: 'singlemovie/:id', component: SingleMovieComponent },
   { path: 'home', component: HomePageComponent },
-  { path: 'viewimage/:imageUrl', component: ViewImageComponent },
+  { path: 'viewimage/:id/:imageUrl', component: ViewImageComponent },
 ];
 
 @NgModule({

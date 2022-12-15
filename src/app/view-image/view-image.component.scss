@@ -1,0 +1,75 @@
+@import "../../variables";
+
+.fullImage {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 200px;
+  &__buttons {
+    align-self: flex-start;
+    margin-top: 10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    &__unique {
+      background-color: $backgroundColor;
+      color: $primaryColor;
+      border: 2px solid $primaryColor;
+      font-size: 28px;
+      font-weight: 700;
+      padding: 5%;
+      margin-bottom: 80%;
+      border-radius: 20px;
+      transition: all 75ms linear;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      i {
+        font-size: 32px;
+        transform: scale(1);
+        transition: transform 75ms linear;
+        transform-origin: top;
+        margin-bottom: 5%;
+      }
+      &:hover {
+        cursor: pointer;
+        box-shadow: 0 0 15px 5px $primaryColor, 0 0 5px 2px $secondaryColor;
+        text-shadow: 0 0 25px $primaryColor, 0 0 3px $secondaryColor;
+        i {
+          transform: scale(1.1);
+        }
+        &::before {
+          opacity: 1;
+        }
+      }
+      &::before {
+        pointer-events: none;
+        content: "";
+        position: absolute;
+        top: 130%;
+        left: 0;
+        width: 100%;
+        height: 50%;
+        transition: all 75ms linear;
+        opacity: 0;
+        background: linear-gradient(
+          0deg,
+          $primaryColor 50%,
+          $secondaryColor 100%
+        );
+        transform: perspective(2em) rotateX(40deg) scale(0.7, 0.4);
+        filter: blur(1.5em);
+      }
+    }
+  }
+
+  &__display {
+    width: 50%;
+    margin-bottom: 100px;
+  }
+}

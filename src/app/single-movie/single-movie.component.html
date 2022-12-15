@@ -280,13 +280,20 @@
         >
           <iframe
             [src]="
-              movieTrailer[0].site === 'YouTube'
+              movieTrailer.length > 0
                 ? (trailerUrl + movieTrailer[0].key | safe)
-                : (posterUrl + movieTrailer[0].key | safe)
+                : ('../../assets/unavailable_video.png' | safe)
             "
             frameBorder="0"
             allowfullscreen
           ></iframe>
+          <span *ngIf="movieTrailer.length <= 0">Vidéo indisponible</span>
+          <p *ngIf="movieTrailer.length <= 0">
+            Rechercher sur &nbsp;
+            <a [href]="youtubeSearchUrl + movie.title | safe" target="_blank"
+              ><i class="fa-brands fa-youtube"></i>Youtube</a
+            >
+          </p>
         </div>
         <div
           class="singleMovie__media__block__content__posters"
@@ -301,8 +308,14 @@
             *ngFor="let poster of moviePosters"
             class="singleMovie__media__block__content__posters__unique"
           >
-            <img [src]="posterUrl + poster.file_path" />
+            <img
+              [src]="posterUrl + poster.file_path"
+              [routerLink]="'/viewimage/' + movie.id + '/' + poster.file_path"
+            />
           </div>
+          <span *ngIf="moviePosters.length <= 0"
+            >Aucune affiche disponible</span
+          >
         </div>
         <div
           class="singleMovie__media__block__content__wallpapers"
@@ -319,6 +332,9 @@
           >
             <img [src]="posterUrl + wallpaper.file_path" />
           </div>
+          <span *ngIf="movieWallpapers.length <= 0"
+            >Aucun fond d'écran disponible</span
+          >
         </div>
       </div>
     </div>

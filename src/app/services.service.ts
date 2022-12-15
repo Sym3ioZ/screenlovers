@@ -90,7 +90,7 @@ export class ServicesService {
   getUniqueMovieTrailer(movieId: number): Observable<any> {
     return this.http
       .get<any>(
-        `https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=032445021a055e1fc596f3292981c16d&language=fr-FR`
+        `https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=032445021a055e1fc596f3292981c16d`
       )
       .pipe(
         map((obj) => obj.results),

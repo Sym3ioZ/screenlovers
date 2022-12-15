@@ -27,6 +27,7 @@ export class SingleMovieComponent implements OnInit {
 
   posterUrl: string = 'https://image.tmdb.org/t/p/w500';
   trailerUrl: string = 'https://www.youtube.com/embed/';
+  youtubeSearchUrl: string = 'https://www.youtube.com/results?search_query=';
 
   constructor(
     private service: ServicesService,
@@ -83,7 +84,7 @@ export class SingleMovieComponent implements OnInit {
     }
   }
 
-  viewImage(imageUrl: string): void {
+  onViewImage(imageUrl: string) {
     this.router.navigateByUrl(`viewimage/${imageUrl}`);
   }
 }
