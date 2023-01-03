@@ -10,6 +10,9 @@ import { ServicesService } from '../services.service';
 })
 export class SinglePeopleComponent implements OnInit {
   uniquePeople$!: Observable<any>;
+  uniquePeopleMovies$!: Observable<any>;
+  posterUrl: string = 'https://image.tmdb.org/t/p/w500';
+
   constructor(
     private route: ActivatedRoute,
     private service: ServicesService
@@ -18,5 +21,6 @@ export class SinglePeopleComponent implements OnInit {
   ngOnInit(): void {
     const peopleId = +this.route.snapshot.params['id'];
     this.uniquePeople$ = this.service.getUniquePeople(peopleId);
+    this.uniquePeopleMovies$ = this.service.getUniquePeopleMovies(peopleId);
   }
 }

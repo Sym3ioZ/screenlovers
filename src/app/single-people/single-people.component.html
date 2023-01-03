@@ -1,5 +1,23 @@
 <div class="singlePeople">
   <div class="singlePeople__block" *ngIf="uniquePeople$ | async as people">
-    <p>{{ people.name }}</p>
+    <h3 class="singlePeople__block__name">{{ people.name }}</h3>
+    <div class="singlePeople__block__card">
+      <div class="singlePeople__block__card__profile">
+        <img [src]="posterUrl + people.profile_path" />
+      </div>
+      <div class="singlePeople__block__card__description">
+        <p>Naissance: {{ people.birthday | date : "d MMMM yyyy" }}</p>
+        <p *ngIf="people.place_of_birth">Lieu: {{ people.place_of_birth }}</p>
+        <p *ngIf="people.deathday">Décès: {{ people.deathday }}</p>
+        <br />
+        <p *ngIf="people.biography">{{ people.biography }}</p>
+        <p>Films notables:</p>
+        <div *ngIf="uniquePeopleMovies$ | async as movies">
+          <div *ngFor="let movie of movies.cast; let i = index">
+            <p *ngIf="i < 5">{{ movie.title }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
