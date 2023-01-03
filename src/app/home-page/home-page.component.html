@@ -36,15 +36,16 @@
           class="home__trending__content__list__unique"
           *ngFor="let movie of trending"
         >
-          <div class="home__trending__content__list__unique__poster">
+          <div
+            class="home__trending__content__list__unique__poster"
+            (click)="onGetMovie(movie.id)"
+          >
             <img
               [src]="posterUrl + movie.poster_path"
               class="home__trending__content__list__unique__poster__image"
+              [title]="movie.title"
             />
           </div>
-          <p class="home__trending__content__list__unique__name">
-            {{ movie.title }}
-          </p>
         </div>
       </div>
       <div class="home__trending__content__bar"></div>
@@ -61,15 +62,16 @@
           class="home__trending__content__list__unique"
           *ngFor="let people of trending"
         >
-          <div class="home__trending__content__list__unique__poster">
+          <div
+            class="home__trending__content__list__unique__poster"
+            (click)="onGetPeople(people.id)"
+          >
             <img
               [src]="posterUrl + people.profile_path"
               class="home__trending__content__list__unique__poster__image"
+              [title]="people.name"
             />
           </div>
-          <p class="home__trending__content__list__unique__name">
-            {{ people.name }}
-          </p>
         </div>
       </div>
       <div class="home__trending__content__bar"></div>

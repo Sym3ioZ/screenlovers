@@ -15,6 +15,7 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { FooterComponent } from './footer/footer.component';
 import { SafePipe } from './safe.pipe';
 import { ViewImageComponent } from './view-image/view-image.component';
+import { SinglePeopleComponent } from './single-people/single-people.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { ViewImageComponent } from './view-image/view-image.component';
     FooterComponent,
     SafePipe,
     ViewImageComponent,
+    SinglePeopleComponent,
   ],
   imports: [
     BrowserModule,

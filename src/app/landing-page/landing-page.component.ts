@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { ServicesService } from '../services.service';
@@ -8,7 +8,7 @@ import { ServicesService } from '../services.service';
   templateUrl: './landing-page.component.html',
   styleUrls: ['./landing-page.component.scss'],
 })
-export class LandingPageComponent {
+export class LandingPageComponent implements OnInit {
   randomMovie$!: Observable<any>;
   randomNumber: number = Math.floor(Math.random() * 10);
   yearGap!: number; //Gap calculated to display 'Released X years ago'

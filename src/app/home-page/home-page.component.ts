@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { ServicesService } from '../services.service';
 
@@ -12,10 +13,18 @@ export class HomePageComponent implements OnInit {
   trendingPeople$!: Observable<any>;
   posterUrl: string = 'https://image.tmdb.org/t/p/w500';
 
-  constructor(private service: ServicesService) {}
+  constructor(private service: ServicesService, private router: Router) {}
 
   ngOnInit(): void {
     this.trendingMovies$ = this.service.getTrendingMovies();
     this.trendingPeople$ = this.service.getTrendingPeople();
+  }
+
+  onGetMovie(movieId: number): any {
+    this.router.navigateByUrl(`singlemovie/${movieId}`);
+  }
+
+  onGetPeople(peopleId: number): any {
+    this.router.navigateByUrl(`singlepeople/${peopleId}`);
   }
 }

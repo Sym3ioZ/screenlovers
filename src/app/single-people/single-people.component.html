@@ -1,0 +1,5 @@
+<div class="singlePeople">
+  <div class="singlePeople__block" *ngIf="uniquePeople$ | async as people">
+    <p>{{ people.name }}</p>
+  </div>
+</div>

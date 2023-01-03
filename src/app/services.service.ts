@@ -40,6 +40,12 @@ export class ServicesService {
     );
   }
 
+  getUniquePeople(peopleId: number): Observable<any> {
+    return this.http.get<object>(
+      `https://api.themoviedb.org/3/person/${peopleId}?api_key=032445021a055e1fc596f3292981c16d&language=fr-FR`
+    );
+  }
+
   getUniqueMovieWriters(movieId: number): Observable<any> {
     // Fetching TMDB API to retrieve credits and map them to get an array with only the writers
     return this.getUniqueMovieCredits(movieId).pipe(
