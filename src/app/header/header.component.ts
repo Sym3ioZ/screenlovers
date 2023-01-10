@@ -18,4 +18,9 @@ export class HeaderComponent {
   onHomePage() {
     this.router.navigateByUrl('home');
   }
+
+  // On clicking search link
+  onSearch(): void {
+    this.router.navigateByUrl('search');
+  }
 }

@@ -1,1 +1,81 @@
-<p>search-component works!</p>
+<div class="search">
+  <form class="search__form">
+    <!-- Form block with choice of searching movie or people -->
+    <fieldset class="search__form__choice">
+      <legend>Recherchez-vous un film ou une personnalité ?</legend>
+      <div class="search__form__choice__radio">
+        <input
+          type="radio"
+          id="movie"
+          name="choice"
+          value="movie"
+          checked
+          (change)="choiceChanger($event)"
+        />
+        <label for="movie">Film</label>
+        <input
+          type="radio"
+          id="people"
+          name="choice"
+          value="people"
+          (change)="choiceChanger($event)"
+        />
+        <label for="people">Personnalité</label>
+      </div>
+      <input
+        type="text"
+        class="search__form__choice__text"
+        placeholder="Votre recherche ici"
+        rows="1"
+        cols="50"
+        (change)="textChanger($event)"
+      />
+      <button
+        class="search__form__choice__submit"
+        type="submit"
+        (click)="search()"
+      >
+        Rechercher
+      </button>
+    </fieldset>
+  </form>
+
+  <!-- Search results for movies -->
+  <div class="search__results">
+    <div class="search__results__movies" *ngIf="selectedChoice === 'movie'">
+      <div
+        class="search__results__movies__list"
+        *ngIf="movieSearch$ | async as movieList"
+      >
+        <div
+          class="search__results__movies__list__unique"
+          *ngFor="let movie of movieList.results"
+        >
+          <div class="search__results__movies__list__unique__poster">
+            <img
+              [src]="
+                movie.poster_path
+                  ? posterUrl + movie.poster_path
+                  : '../assets/default_poster.png'
+              "
+            />
+          </div>
+          <div class="search__results__movies__list__unique__title">
+            <p>{{ movie.title }}</p>
+            <p>{{ movie.release_date | date : "yyyy" }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Search results for people -->
+    <div class="search__results__people" *ngIf="selectedChoice === 'people'">
+      <div
+        class="search__results__people__list"
+        *ngIf="peopleSearch$ | async as peopleList"
+      >
+        <div *ngFor="let people of peopleList.results">{{ people.name }}</div>
+      </div>
+    </div>
+  </div>
+</div>

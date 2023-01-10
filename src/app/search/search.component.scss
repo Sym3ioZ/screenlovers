@@ -1,0 +1,184 @@
+@import "../../variables";
+
+.search {
+  width: 100%;
+  padding: 10% 0;
+  color: $primaryColor;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  &__form {
+    width: 95%;
+    display: flex;
+    flex-direction: row;
+    &__choice {
+      width: 100%;
+      appearance: none;
+      border: 3px solid $primaryColor;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: center;
+      padding: 5px 0 15px 0;
+      legend {
+        font-size: 24px;
+        font-weight: 800;
+        margin-left: 1em;
+      }
+      &__radio {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        input {
+          appearance: none;
+          width: 2em;
+          height: 2em;
+          border-radius: 50%;
+          border: 0.25em solid $primaryColor;
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          margin-right: 1em;
+          transition: all 100ms ease-in-out;
+          &:checked {
+            border: 0.6em solid $primaryColor;
+            box-shadow: 0 0 25px $primaryColor, 0 0 3px $secondaryColor;
+          }
+          &:hover {
+            cursor: pointer;
+          }
+        }
+        label {
+          font-size: 22px;
+          font-weight: 700;
+          margin-right: 2em;
+        }
+      }
+      &__text {
+        width: 50%;
+        margin: 10px 0;
+        appearance: none;
+        resize: none;
+        background-color: transparent;
+        color: $primaryColor;
+        font-size: 22px;
+        font-weight: 500;
+        border: 2px solid $primaryColor;
+        border-radius: 1em;
+        padding: 10px 5px;
+        transition: all 100ms ease-in-out;
+        text-decoration: none;
+        &:focus,
+        &:active {
+          appearance: none;
+          border: 2px solid $primaryColor;
+          outline: none;
+          box-shadow: 0 0 25px $primaryColor, 0 0 3px $secondaryColor;
+        }
+      }
+      &__submit {
+        appearance: none;
+        padding: 10px 5px;
+        border: 2px solid $primaryColor;
+        background-color: transparent;
+        color: $primaryColor;
+        font-size: 26px;
+        font-weight: 800;
+        border-radius: 1em;
+        transition: all 100ms ease-in-out;
+        &:hover {
+          cursor: pointer;
+          background-color: $primaryColor;
+          color: $backgroundColor;
+          box-shadow: 0 0 25px $primaryColor, 0 0 3px $secondaryColor;
+        }
+      }
+    }
+  }
+
+  &__results {
+    margin-top: 30px;
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    &__movies {
+      width: 85%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      &__list {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        &__unique {
+          width: 100%;
+          border: 5px solid $backgroundColor;
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: center;
+          background-color: $primaryColor;
+          transition: all 150ms ease-in-out;
+          &:hover {
+            cursor: pointer;
+            background-color: $backgroundColor;
+            p {
+              color: $primaryColor;
+            }
+            img {
+              transform: scale(1.25);
+            }
+          }
+          &__poster {
+            width: 20%;
+            border-right: 10px solid $backgroundColor;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            img {
+              width: 100%;
+              transform-origin: top;
+              transform: scale(1.05);
+              overflow: hidden;
+              transition: all 250ms ease-in-out;
+            }
+          }
+          &__title {
+            width: 80%;
+
+            color: $backgroundColor;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            padding: 0 1em;
+            p {
+              width: 100%;
+              font-size: 42px;
+              font-weight: 800;
+            }
+            p:last-child {
+              margin: 1em 0;
+              font-size: 36px;
+              font-weight: 700;
+              color: $backgroundColor;
+              text-align: center;
+            }
+          }
+        }
+      }
+    }
+  }
+}

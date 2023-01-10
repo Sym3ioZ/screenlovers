@@ -189,4 +189,16 @@ export class ServicesService {
         })
       );
   }
+
+  searchMovie(query: string): Observable<any> {
+    return this.http.get<Object>(
+      `https://api.themoviedb.org/3/search/movie?api_key=032445021a055e1fc596f3292981c16d&query=${query}&language=fr-FR`
+    );
+  }
+
+  searchPeople(query: string): Observable<any> {
+    return this.http.get<Object>(
+      `https://api.themoviedb.org/3/search/person?api_key=032445021a055e1fc596f3292981c16d&query=${query}&language=fr-FR`
+    );
+  }
 }
