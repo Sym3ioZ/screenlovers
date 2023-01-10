@@ -58,8 +58,11 @@
       *ngIf="uniquePeopleImages$ | async as images"
     >
       <p>Galerie:</p>
-      <p *ngIf="!images.profile">Aucune photo disponible</p>
-      <div class="singlePeople__block__images__gallery" *ngIf="images.profile">
+      <p *ngIf="images.profiles.length < 1">Aucune photo disponible</p>
+      <div
+        class="singlePeople__block__images__gallery"
+        *ngIf="images.profiles.length > 0"
+      >
         <div
           class="singlePeople__block__images__gallery__unique"
           *ngFor="let image of images.profiles"
