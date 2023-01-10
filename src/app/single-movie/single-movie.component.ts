@@ -87,4 +87,8 @@ export class SingleMovieComponent implements OnInit {
   onViewImage(imageUrl: string) {
     this.router.navigateByUrl(`viewimage/${imageUrl}`);
   }
+
+  onGetPeople(peopleId: number): any {
+    this.router.navigateByUrl(`singlepeople/${peopleId}`);
+  }
 }

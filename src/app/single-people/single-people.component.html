@@ -3,19 +3,71 @@
     <h3 class="singlePeople__block__name">{{ people.name }}</h3>
     <div class="singlePeople__block__card">
       <div class="singlePeople__block__card__profile">
-        <img [src]="posterUrl + people.profile_path" />
+        <img
+          [src]="posterUrl + people.profile_path"
+          *ngIf="people.profile_path"
+        />
+        <p *ngIf="!people.profile_path">Aucune photo disponible</p>
       </div>
       <div class="singlePeople__block__card__description">
-        <p>Naissance: {{ people.birthday | date : "d MMMM yyyy" }}</p>
+        <p *ngIf="people.birthday">
+          Naissance: {{ people.birthday | date : "d MMMM yyyy" }}
+        </p>
         <p *ngIf="people.place_of_birth">Lieu: {{ people.place_of_birth }}</p>
-        <p *ngIf="people.deathday">Décès: {{ people.deathday }}</p>
+        <p *ngIf="people.deathday">
+          Décès: {{ people.deathday | date : "d MMMM yyyy" }}
+        </p>
         <br />
-        <p *ngIf="people.biography">{{ people.biography }}</p>
+        <p
+          class="singlePeople__block__card__description__bio"
+          *ngIf="people.biography"
+        >
+          {{ people.biography }}
+        </p>
         <p>Films notables:</p>
-        <div *ngIf="uniquePeopleMovies$ | async as movies">
-          <div *ngFor="let movie of movies.cast; let i = index">
-            <p *ngIf="i < 5">{{ movie.title }}</p>
+        <div
+          class="singlePeople__block__card__description__movies"
+          *ngIf="
+            (people.known_for_department === 'Acting'
+              ? uniquePeopleMoviesCast$
+              : people.known_for_department === 'Directing'
+              ? uniquePeopleMoviesDirecting$
+              : uniquePeopleMoviesWriting$
+            ) | async as movies
+          "
+        >
+          <div
+            class="singlePeople__block__card__description__movies__unique"
+            *ngFor="let movie of movies"
+          >
+            <div
+              class="singlePeople__block__card__description__movies__unique__poster"
+              (click)="onGetUniqueMovie(movie.id)"
+            >
+              <img
+                [src]="posterUrl + movie.poster_path"
+                title="{{ movie.title }}"
+              />
+            </div>
           </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="singlePeople__block__images"
+      *ngIf="uniquePeopleImages$ | async as images"
+    >
+      <p>Galerie:</p>
+      <p *ngIf="!images.profile">Aucune photo disponible</p>
+      <div class="singlePeople__block__images__gallery" *ngIf="images.profile">
+        <div
+          class="singlePeople__block__images__gallery__unique"
+          *ngFor="let image of images.profiles"
+        >
+          <img
+            [src]="posterUrl + image.file_path"
+            [routerLink]="'/viewimage/' + people.id + '/' + image.file_path"
+          />
         </div>
       </div>
     </div>

@@ -27,4 +27,13 @@ export class HomePageComponent implements OnInit {
   onGetPeople(peopleId: number): any {
     this.router.navigateByUrl(`singlepeople/${peopleId}`);
   }
+
+  // On clicking ? link
+  onDiscover() {
+    this.router.navigateByUrl('');
+  }
+
+  onSearch(): void {
+    this.router.navigateByUrl('search');
+  }
 }

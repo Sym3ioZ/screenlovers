@@ -86,6 +86,7 @@
         >
           <img
             [src]="'../../assets/flags/128x128/' + country.iso_3166_1 + '.png'"
+            title="{{ country.name }}"
           />
         </div>
         <div class="singleMovie__block__description__countries__genres">
@@ -111,6 +112,7 @@
           <div
             class="singleMovie__crew__list__members__unique__card"
             *ngIf="crewToggle ? i < 100 : i < 3"
+            (click)="onGetPeople(movieCrewMember.id)"
           >
             <div
               class="singleMovie__crew__list__members__unique__card__profile"
@@ -151,6 +153,7 @@
           <div
             class="singleMovie__crew__list__members__unique__card"
             *ngIf="writersToggle ? i < 100 : i < 3"
+            (click)="onGetPeople(movieWriter.id)"
           >
             <div
               class="singleMovie__crew__list__members__unique__card__profile"
@@ -188,7 +191,7 @@
       class="singleMovie__crew__list"
       *ngIf="uniqueMovieCredits$ | async as movieCredits"
     >
-      <h5>Acteurs:</h5>
+      <h5>Distribution:</h5>
       <div class="singleMovie__crew__list__members">
         <div
           class="singleMovie__crew__list__members__unique"
@@ -198,6 +201,7 @@
           <div
             class="singleMovie__crew__list__members__unique__card"
             *ngIf="castToggle ? i < 100 : i < 8"
+            (click)="onGetPeople(movieCast.id)"
           >
             <div
               class="singleMovie__crew__list__members__unique__card__profile"

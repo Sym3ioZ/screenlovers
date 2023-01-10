@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { ServicesService } from '../services.service';
 
@@ -10,17 +10,37 @@ import { ServicesService } from '../services.service';
 })
 export class SinglePeopleComponent implements OnInit {
   uniquePeople$!: Observable<any>;
-  uniquePeopleMovies$!: Observable<any>;
+  uniquePeopleMoviesCast$!: Observable<any>;
+  uniquePeopleMoviesDirecting$!: Observable<any>;
+  uniquePeopleMoviesWriting$!: Observable<any>;
+  uniquePeopleImages$!: Observable<any>;
   posterUrl: string = 'https://image.tmdb.org/t/p/w500';
 
   constructor(
     private route: ActivatedRoute,
+    private router: Router,
     private service: ServicesService
   ) {}
 
   ngOnInit(): void {
     const peopleId = +this.route.snapshot.params['id'];
     this.uniquePeople$ = this.service.getUniquePeople(peopleId);
-    this.uniquePeopleMovies$ = this.service.getUniquePeopleMovies(peopleId);
+    this.uniquePeopleMoviesCast$ = this.service.getUniquePeopleMovies(
+      peopleId,
+      'Acting'
+    );
+    this.uniquePeopleMoviesDirecting$ = this.service.getUniquePeopleMovies(
+      peopleId,
+      'Directing'
+    );
+    this.uniquePeopleMoviesWriting$ = this.service.getUniquePeopleMovies(
+      peopleId,
+      'Writing'
+    );
+    this.uniquePeopleImages$ = this.service.getUniquePeopleImages(peopleId);
+  }
+
+  onGetUniqueMovie(movieId: number): void {
+    this.router.navigateByUrl(`singlemovie/${movieId}`);
   }
 }

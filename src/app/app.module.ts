@@ -16,6 +16,7 @@ import { FooterComponent } from './footer/footer.component';
 import { SafePipe } from './safe.pipe';
 import { ViewImageComponent } from './view-image/view-image.component';
 import { SinglePeopleComponent } from './single-people/single-people.component';
+import { SearchComponent } from './search/search.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { SinglePeopleComponent } from './single-people/single-people.component';
     SafePipe,
     ViewImageComponent,
     SinglePeopleComponent,
+    SearchComponent,
   ],
   imports: [
     BrowserModule,

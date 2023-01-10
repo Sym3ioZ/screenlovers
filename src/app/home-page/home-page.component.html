@@ -16,11 +16,19 @@
       des liens vers les fiches des acteurs, réalisateurs,...
     </p>
     <p>
-      Vous pouvez consulter les films par genre, effectuer une recherche par
-      titre, ou bien vous laisser surprendre par une œuvre au hasard parmi les
-      films sortis à la période actuelle au cours des 100 dernières années, en
-      cliquant sur le point d'interrogation!
+      Vous pouvez rechercher un film ou une personnalité via la page de
+      recherche, ou bien vous laisser surprendre par une œuvre au hasard parmi
+      les films sortis à la période actuelle au cours des 100 dernières années,
+      en cliquant sur le point d'interrogation!
     </p>
+    <div class="home__welcomeMessage__links">
+      <div class="home__welcomeMessage__links__unique" (click)="onDiscover()">
+        <i class="fa-solid fa-circle-question"><p>Surprenez-moi!</p></i>
+      </div>
+      <div class="home__welcomeMessage__links__unique" (click)="onSearch()">
+        <i class="fa-solid fa-magnifying-glass"><p>Recherche</p></i>
+      </div>
+    </div>
   </div>
 
   <!-- Featuring trending movies -->

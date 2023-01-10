@@ -3,10 +3,7 @@
     <button class="fullImage__buttons__unique" (click)="downloadPoster()">
       <i class="fa-solid fa-file-arrow-down"></i>Télécharger
     </button>
-    <button
-      class="fullImage__buttons__unique"
-      [routerLink]="'/singlemovie/' + movie.id"
-    >
+    <button class="fullImage__buttons__unique" (click)="back()">
       <i class="fa-solid fa-circle-left"></i>Retour
     </button>
   </div>

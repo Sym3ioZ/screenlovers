@@ -40,4 +40,8 @@ export class ViewImageComponent implements OnInit {
         aTag.remove();
       });
   }
+
+  back(): void {
+    history.back();
+  }
 }

@@ -46,10 +46,34 @@ export class ServicesService {
     );
   }
 
-  getUniquePeopleMovies(peopleId: number): Observable<any> {
+  getUniquePeopleImages(peopleId: number): Observable<any> {
     return this.http.get<object>(
-      `https://api.themoviedb.org/3/person/${peopleId}/movie_credits?api_key=032445021a055e1fc596f3292981c16d&language=fr-FR`
+      `https://api.themoviedb.org/3/person/${peopleId}/images?api_key=032445021a055e1fc596f3292981c16d`
     );
+  }
+
+  getUniquePeopleMovies(peopleId: number, dept: string): Observable<any> {
+    return this.http
+      .get<any>(
+        `https://api.themoviedb.org/3/person/${peopleId}/movie_credits?api_key=032445021a055e1fc596f3292981c16d&language=fr-FR`
+      )
+      .pipe(
+        map((array) =>
+          dept === 'Acting'
+            ? array.cast
+            : array.crew.filter(
+                (element: { department: string }) => element.department === dept
+              )
+        ),
+        map((fullArray) =>
+          fullArray.filter(
+            (element: { vote_average: number }) => element.vote_average > 7
+          )
+        ),
+        map((filteredArray) => filteredArray.slice(0, 6)),
+        tap((value) => console.log(value)),
+        tap((value) => console.log(value))
+      );
   }
 
   getUniqueMovieWriters(movieId: number): Observable<any> {
