@@ -33,15 +33,15 @@
       <button
         class="search__form__choice__submit"
         type="submit"
-        (click)="search()"
+        (click)="search(1)"
       >
         Rechercher
       </button>
     </fieldset>
   </form>
 
-  <!-- Search results for movies -->
   <div class="search__results">
+    <!-- Search results for movies -->
     <div class="search__results__movies" *ngIf="selectedChoice === 'movie'">
       <div
         class="search__results__movies__list"
@@ -50,6 +50,7 @@
         <div
           class="search__results__movies__list__unique"
           *ngFor="let movie of movieList.results"
+          (click)="onGetMovie(movie.id)"
         >
           <div class="search__results__movies__list__unique__poster">
             <img
@@ -65,6 +66,39 @@
             <p>{{ movie.release_date | date : "yyyy" }}</p>
           </div>
         </div>
+        <div
+          class="search__results__movies__pageNav"
+          *ngIf="movieList.total_pages > 1"
+        >
+          <div
+            class="search__results__movies__pageNav__start"
+            *ngIf="movieList.page > 1"
+            (click)="search(1)"
+          >
+            <i class="fa-solid fa-backward-fast"></i>
+          </div>
+          <div
+            class="search__results__movies__pageNav__prev"
+            *ngIf="movieList.page > 1"
+            (click)="search(movieList.page - 1)"
+          >
+            <i class="fa-solid fa-backward-step"></i>
+          </div>
+          <div
+            class="search__results__movies__pageNav__next"
+            *ngIf="movieList.page < movieList.total_pages"
+            (click)="search(movieList.page + 1)"
+          >
+            <i class="fa-solid fa-forward-step"></i>
+          </div>
+          <div
+            class="search__results__movies__pageNav__end"
+            *ngIf="movieList.page < movieList.total_pages"
+            (click)="search(movieList.total_pages)"
+          >
+            <i class="fa-solid fa-forward-fast"></i>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -74,7 +108,72 @@
         class="search__results__people__list"
         *ngIf="peopleSearch$ | async as peopleList"
       >
-        <div *ngFor="let people of peopleList.results">{{ people.name }}</div>
+        <div
+          class="search__results__people__list__unique"
+          *ngFor="let people of peopleList.results"
+          (click)="onGetPeople(people.id)"
+        >
+          <div class="search__results__people__list__unique__poster">
+            <img
+              [src]="
+                people.profile_path
+                  ? posterUrl + people.profile_path
+                  : '../assets/default_profile.png'
+              "
+            />
+          </div>
+          <div class="search__results__people__list__unique__title">
+            <p>{{ people.name }}</p>
+            <div class="search__results__people__list__unique__title__movies">
+              <div
+                class="search__results__people__list__unique__title__movies__unique"
+                *ngFor="let movie of people.known_for; let i = index"
+              >
+                <img
+                  *ngIf="i < 3"
+                  [src]="
+                    movie.poster_path
+                      ? posterUrl + movie.poster_path
+                      : '../assets/default_poster.png'
+                  "
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="search__results__people__pageNav"
+          *ngIf="peopleList.total_pages > 1"
+        >
+          <div
+            class="search__results__people__pageNav__start"
+            *ngIf="peopleList.page > 1"
+            (click)="search(1)"
+          >
+            <i class="fa-solid fa-backward-fast"></i>
+          </div>
+          <div
+            class="search__results__people__pageNav__prev"
+            *ngIf="peopleList.page > 1"
+            (click)="search(peopleList.page - 1)"
+          >
+            <i class="fa-solid fa-backward-step"></i>
+          </div>
+          <div
+            class="search__results__people__pageNav__next"
+            *ngIf="peopleList.page < peopleList.total_pages"
+            (click)="search(peopleList.page + 1)"
+          >
+            <i class="fa-solid fa-forward-step"></i>
+          </div>
+          <div
+            class="search__results__people__pageNav__end"
+            *ngIf="peopleList.page < peopleList.total_pages"
+            (click)="search(peopleList.total_pages)"
+          >
+            <i class="fa-solid fa-forward-fast"></i>
+          </div>
+        </div>
       </div>
     </div>
   </div>

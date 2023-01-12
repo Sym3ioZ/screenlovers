@@ -75,7 +75,11 @@
             (click)="onGetPeople(people.id)"
           >
             <img
-              [src]="posterUrl + people.profile_path"
+              [src]="
+                people.profile_path
+                  ? posterUrl + people.profile_path
+                  : '../assets/default_profile.png'
+              "
               class="home__trending__content__list__unique__poster__image"
               [title]="people.name"
             />

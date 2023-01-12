@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
+import { map, Observable } from 'rxjs';
 import { ServicesService } from '../services.service';
 
 @Component({
@@ -14,7 +15,7 @@ export class SearchComponent implements OnInit {
   movieSearch$!: Observable<any>;
   peopleSearch$!: Observable<any>;
 
-  constructor(private service: ServicesService) {}
+  constructor(private service: ServicesService, private router: Router) {}
 
   ngOnInit(): void {}
 
@@ -25,11 +26,20 @@ export class SearchComponent implements OnInit {
   textChanger(event: any): void {
     this.textValue = event.target.value;
   }
-  search(): void {
+
+  search(page: number): void {
     if (this.selectedChoice === 'movie') {
-      this.movieSearch$ = this.service.searchMovie(this.textValue);
+      this.movieSearch$ = this.service.searchMovie(this.textValue, page);
     } else {
-      this.peopleSearch$ = this.service.searchPeople(this.textValue);
+      this.peopleSearch$ = this.service.searchPeople(this.textValue, page);
     }
+  }
+
+  onGetMovie(movieId: number): void {
+    this.router.navigateByUrl(`singlemovie/${movieId}`);
+  }
+
+  onGetPeople(peopleId: number): void {
+    this.router.navigateByUrl(`singlepeople/${peopleId}`);
   }
 }

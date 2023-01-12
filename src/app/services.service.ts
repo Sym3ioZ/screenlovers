@@ -158,7 +158,7 @@ export class ServicesService {
   getTrendingMovies(): Observable<any> {
     return this.http
       .get<any>(
-        'https://api.themoviedb.org/3/trending/movie/day?api_key=032445021a055e1fc596f3292981c16d&language=fr'
+        'https://api.themoviedb.org/3/trending/movie/day?api_key=032445021a055e1fc596f3292981c16d&language=fr&include_adult=false'
       )
       .pipe(
         map((obj) => obj.results),
@@ -175,7 +175,7 @@ export class ServicesService {
   getTrendingPeople(): Observable<any> {
     return this.http
       .get<any>(
-        'https://api.themoviedb.org/3/trending/person/day?api_key=032445021a055e1fc596f3292981c16d'
+        'https://api.themoviedb.org/3/trending/person/day?api_key=032445021a055e1fc596f3292981c16d&include_adult=false'
       )
       .pipe(
         map((obj) => obj.results),
@@ -190,15 +190,15 @@ export class ServicesService {
       );
   }
 
-  searchMovie(query: string): Observable<any> {
+  searchMovie(query: string, page: number): Observable<any> {
     return this.http.get<Object>(
-      `https://api.themoviedb.org/3/search/movie?api_key=032445021a055e1fc596f3292981c16d&query=${query}&language=fr-FR`
+      `https://api.themoviedb.org/3/search/movie?api_key=032445021a055e1fc596f3292981c16d&query=${query}&page=${page}&language=fr-FR&include_adult=false`
     );
   }
 
-  searchPeople(query: string): Observable<any> {
+  searchPeople(query: string, page: number): Observable<any> {
     return this.http.get<Object>(
-      `https://api.themoviedb.org/3/search/person?api_key=032445021a055e1fc596f3292981c16d&query=${query}&language=fr-FR`
+      `https://api.themoviedb.org/3/search/person?api_key=032445021a055e1fc596f3292981c16d&query=${query}&page=${page}&language=fr-FR&include_adult=false`
     );
   }
 }
