@@ -18,6 +18,7 @@ import { ViewImageComponent } from './view-image/view-image.component';
 import { SinglePeopleComponent } from './single-people/single-people.component';
 import { SearchComponent } from './search/search.component';
 import { AllmoviesComponent } from './allmovies/allmovies.component';
+import { ContactComponent } from './contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { AllmoviesComponent } from './allmovies/allmovies.component';
     SinglePeopleComponent,
     SearchComponent,
     AllmoviesComponent,
+    ContactComponent,
   ],
   imports: [
     BrowserModule,

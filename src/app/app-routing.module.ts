@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AllmoviesComponent } from './allmovies/allmovies.component';
+import { ContactComponent } from './contact/contact.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { SearchComponent } from './search/search.component';
@@ -15,6 +16,7 @@ const routes: Routes = [
   { path: 'singlepeople/:id/allmovies', component: AllmoviesComponent },
   { path: 'home', component: HomePageComponent },
   { path: 'search', component: SearchComponent },
+  { path: 'contact', component: ContactComponent },
   { path: 'viewimage/:id/:imageUrl', component: ViewImageComponent },
 ];
 

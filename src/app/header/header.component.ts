@@ -23,4 +23,9 @@ export class HeaderComponent {
   onSearch(): void {
     this.router.navigateByUrl('search');
   }
+
+  // On clicking contact link
+  onContact(): void {
+    this.router.navigateByUrl('contact');
+  }
 }

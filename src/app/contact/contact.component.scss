@@ -1,0 +1,29 @@
+@import "../../variables";
+
+.contact {
+  width: 100%;
+  padding: 10% 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  &__block {
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    h2 {
+      color: $primaryColor;
+      font-size: 52px;
+      font-weight: 800;
+      text-align: center;
+      text-decoration: underline;
+    }
+    p {
+      font-size: 22px;
+      font-weight: 500;
+      color: white;
+      text-align: justify;
+    }
+  }
+}
