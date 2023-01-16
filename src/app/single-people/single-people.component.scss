@@ -85,6 +85,14 @@
             }
           }
         }
+        &__allMovies {
+          transition: all 75ms ease-in-out;
+          user-select: none;
+          &:hover {
+            cursor: pointer;
+            text-shadow: 0 0 25px $primaryColor, 0 0 3px $secondaryColor;
+          }
+        }
       }
     }
     &__images {

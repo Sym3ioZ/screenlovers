@@ -42,11 +42,19 @@
 
   <div class="search__results">
     <!-- Search results for movies -->
+
     <div class="search__results__movies" *ngIf="selectedChoice === 'movie'">
       <div
         class="search__results__movies__list"
         *ngIf="movieSearch$ | async as movieList"
       >
+        <!-- Checks if no results are sent -->
+        <div
+          class="search__results__none"
+          *ngIf="movieList.total_results === 0"
+        >
+          Aucun résultat pour cette recherche
+        </div>
         <div
           class="search__results__movies__list__unique"
           *ngFor="let movie of movieList.results"
@@ -108,6 +116,13 @@
         class="search__results__people__list"
         *ngIf="peopleSearch$ | async as peopleList"
       >
+        <!-- Checks if no results are sent -->
+        <div
+          class="search__results__none"
+          *ngIf="peopleList.total_results === 0"
+        >
+          Aucun résultat pour cette recherche
+        </div>
         <div
           class="search__results__people__list__unique"
           *ngFor="let people of peopleList.results"

@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { tap, map, Observable } from 'rxjs';
+import { tap, map, Observable, elementAt } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -70,9 +70,40 @@ export class ServicesService {
             (element: { vote_average: number }) => element.vote_average > 7
           )
         ),
-        map((filteredArray) => filteredArray.slice(0, 6)),
+        map((filteredArray) => filteredArray.slice(0, 6))
+      );
+  }
+
+  getPeopleAllMovies(peopleId: number): Observable<any> {
+    return this.http
+      .get<any>(
+        `https://api.themoviedb.org/3/person/${peopleId}/movie_credits?api_key=032445021a055e1fc596f3292981c16d&language=fr-FR`
+      )
+      .pipe(
+        map((value) =>
+          value.cast.concat(
+            value.crew.filter(
+              (element: { department: string }) =>
+                element.department === ('Writing' || 'Story' || 'Directing')
+            )
+          )
+        ),
         tap((value) => console.log(value)),
-        tap((value) => console.log(value))
+        map((array) => {
+          for (let i = 0; i < array.length - 1; i++) {
+            for (let j = i + 1; j < array.length; j++) {
+              if (array[i].id === array[j].id) {
+                array.splice(j, 1);
+              }
+            }
+          }
+          return array;
+        }),
+        map((value) =>
+          value.sort((a: any, b: any) =>
+            a.release_date < b.release_date ? 1 : -1
+          )
+        )
       );
   }
 

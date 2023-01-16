@@ -1,0 +1,32 @@
+<div class="allMovies" *ngIf="people$ | async as people">
+  <div class="allMovies__peopleName">
+    <h2>FILMOGRAPHIE</h2>
+    <p (click)="onGetUniquePeople(people.id)">{{ people.name }}</p>
+  </div>
+
+  <div class="allMovies__results" *ngIf="castMovies$ | async as movies">
+    <div class="allMovies__results__cast">
+      <div
+        class="allMovies__results__cast__unique"
+        *ngFor="let movie of movies"
+        (click)="onGetUniqueMovie(movie.id)"
+      >
+        <div class="allMovies__results__cast__unique__poster">
+          <img
+            [src]="
+              movie.poster_path
+                ? posterUrl + movie.poster_path
+                : '../assets/default_poster.png'
+            "
+          />
+        </div>
+        <div class="allMovies__results__cast__unique__title">
+          <p>{{ movie.title }}</p>
+        </div>
+        <div class="allMovies__results__cast__unique__character">
+          <p>{{ movie.release_date | date : "yyyy" }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

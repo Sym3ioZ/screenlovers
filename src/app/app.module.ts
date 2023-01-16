@@ -17,6 +17,7 @@ import { SafePipe } from './safe.pipe';
 import { ViewImageComponent } from './view-image/view-image.component';
 import { SinglePeopleComponent } from './single-people/single-people.component';
 import { SearchComponent } from './search/search.component';
+import { AllmoviesComponent } from './allmovies/allmovies.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { SearchComponent } from './search/search.component';
     ViewImageComponent,
     SinglePeopleComponent,
     SearchComponent,
+    AllmoviesComponent,
   ],
   imports: [
     BrowserModule,

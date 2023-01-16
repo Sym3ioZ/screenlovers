@@ -45,11 +45,24 @@
               (click)="onGetUniqueMovie(movie.id)"
             >
               <img
-                [src]="posterUrl + movie.poster_path"
+                [src]="
+                  movie.poster_path
+                    ? posterUrl + movie.poster_path
+                    : '../assets/default_poster.png'
+                "
                 title="{{ movie.title }}"
               />
             </div>
           </div>
+        </div>
+        <div
+          class="singlePeople__block__card__description__allMovies"
+          (click)="onGetAllMovies(people.id)"
+        >
+          <p>
+            <i class="fa-solid fa-angle-right"></i> Filmographie complète
+            <i class="fa-solid fa-angle-left"></i>
+          </p>
         </div>
       </div>
     </div>

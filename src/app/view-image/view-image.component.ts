@@ -16,15 +16,10 @@ export class ViewImageComponent implements OnInit {
 
   posterUrl: string = 'https://image.tmdb.org/t/p/original/';
   imageUrl!: string;
-  movieId!: number;
-
-  uniqueMovie$!: Observable<any>;
 
   ngOnInit(): void {
     this.imageUrl = this.route.snapshot.params['imageUrl']; // Retrieving imageUrl from URL parameters
-    this.movieId = +this.route.snapshot.params['id']; // Retrieving movie from previous page
     window.scrollTo({ top: 0, behavior: 'smooth' });
-    this.uniqueMovie$ = this.service.getUniqueMovie(this.movieId);
   }
 
   downloadPoster() {

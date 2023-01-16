@@ -304,9 +304,9 @@
                 -webkit-transform-origin: top;
                 -ms-transform-origin: top;
                 transform-origin: top;
-                -webkit-transition: all 400ms ease-in-out;
-                -o-transition: all 400ms ease-in-out;
-                transition: all 400ms ease-in-out;
+                -webkit-transition: all 250ms ease-in-out;
+                -o-transition: all 250ms ease-in-out;
+                transition: all 250ms ease-in-out;
               }
             }
             &__name {
@@ -501,7 +501,7 @@
               width: 100%;
               transform: scale(1);
               transform-origin: top;
-              transition: all 400ms ease-in-out;
+              transition: all 250ms ease-in-out;
             }
           }
         }
@@ -560,7 +560,7 @@
               width: 100%;
               transform: scale(1);
               transform-origin: top;
-              transition: all 400ms ease-in-out;
+              transition: all 250ms ease-in-out;
             }
           }
         }
