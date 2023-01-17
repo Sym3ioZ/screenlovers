@@ -3,7 +3,7 @@
 .singleMovie {
   width: 100%;
   z-index: -2;
-  padding: 150px 0 150px 0;
+  padding: 10% 0;
 
   &__title {
     color: $primaryColor;
@@ -564,6 +564,51 @@
             }
           }
         }
+      }
+    }
+  }
+  &__tmdbLink {
+    margin: 5em 0 -5em 3em;
+    width: 50%;
+    color: white;
+    font-size: 20px;
+    font-weight: 500;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+    &__logo {
+      margin-left: 1em;
+      border-radius: 2em;
+      padding: 0.2em 0.3em;
+      width: 12%;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      &::before {
+        content: "";
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        background-color: transparent;
+        border-radius: 2em;
+        padding: 0.2em 0.3em;
+        transform: scale(0);
+        transition: all 150ms ease-in-out;
+        z-index: -1;
+      }
+      &:hover {
+        cursor: pointer;
+        &::before {
+          transform: scale(1);
+          background-color: $primaryColor;
+          box-shadow: 0px 0px 5px 1px $primaryColor;
+        }
+      }
+      img {
+        width: 100%;
       }
     }
   }

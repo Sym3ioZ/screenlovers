@@ -145,7 +145,7 @@
                 *ngFor="let movie of people.known_for; let i = index"
               >
                 <img
-                  *ngIf="i < 3"
+                  *ngIf="i < 3 && movie.media_type === 'movie'"
                   [src]="
                     movie.poster_path
                       ? posterUrl + movie.poster_path

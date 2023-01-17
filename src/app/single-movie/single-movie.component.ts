@@ -91,4 +91,8 @@ export class SingleMovieComponent implements OnInit {
   onGetPeople(peopleId: number): any {
     this.router.navigateByUrl(`singlepeople/${peopleId}`);
   }
+
+  onTmdbLink(movieId: number): void {
+    this.router.navigateByUrl(`https://www.themoviedb.org/movie/${movieId}`);
+  }
 }

@@ -228,8 +228,10 @@ export class ServicesService {
   }
 
   searchPeople(query: string, page: number): Observable<any> {
-    return this.http.get<Object>(
-      `https://api.themoviedb.org/3/search/person?api_key=032445021a055e1fc596f3292981c16d&query=${query}&page=${page}&language=fr-FR&include_adult=false`
-    );
+    return this.http
+      .get<Object>(
+        `https://api.themoviedb.org/3/search/person?api_key=032445021a055e1fc596f3292981c16d&query=${query}&page=${page}&language=fr-FR&include_adult=false`
+      )
+      .pipe(tap((value) => console.log(value)));
   }
 }
