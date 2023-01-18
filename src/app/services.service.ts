@@ -211,6 +211,9 @@ export class ServicesService {
       .pipe(
         map((obj) => obj.results),
         tap((value) => console.log(value)),
+        map((value) =>
+          value.sort((a: any, b: any) => (a.popularity < b.popularity ? 1 : -1))
+        ),
         map((results) => {
           let array = [];
           for (let i = 0; i < 9; i++) {

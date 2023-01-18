@@ -21,3 +21,51 @@
     transform: scale(0) translateX(200vw);
   }
 }
+
+@keyframes neonStart {
+  0% {
+    opacity: 0;
+  }
+  16% {
+    opacity: 0;
+  }
+  19% {
+    opacity: 0.8;
+  }
+  21% {
+    opacity: 0.1;
+  }
+  22% {
+    opacity: 0;
+  }
+  33% {
+    opacity: 0;
+  }
+  37% {
+    opacity: 1;
+  }
+  40% {
+    opacity: 0.9;
+  }
+  49% {
+    opacity: 0.2;
+  }
+  63% {
+    opacity: 0.1;
+  }
+  64% {
+    opacity: 0.75;
+  }
+  66% {
+    opacity: 0.05;
+  }
+  68% {
+    opacity: 0;
+  }
+  72% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
