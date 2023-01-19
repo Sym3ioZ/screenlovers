@@ -1,4 +1,5 @@
 @import "../../variables";
+@import "../../mixins";
 
 .allMovies {
   padding: 10% 0;
@@ -7,6 +8,9 @@
   flex-direction: column;
   justify-content: baseline;
   align-items: center;
+  @include smalldesk {
+    padding: 12% 0;
+  }
   &__peopleName {
     margin-bottom: 2%;
     display: flex;
@@ -18,6 +22,10 @@
       font-weight: 800;
       text-align: center;
       text-decoration: underline;
+      @include smalldesk {
+        font-size: 48px;
+        font-weight: 700;
+      }
     }
     p {
       width: fit-content;
@@ -27,49 +35,16 @@
       text-align: center;
       user-select: none;
       transition: all 100ms ease-in-out;
+      @include smalldesk {
+        font-size: 36px;
+      }
       &:hover {
         cursor: pointer;
         text-shadow: 0 0 25px $primaryColor, 0 0 3px $secondaryColor;
       }
     }
   }
-  &__listChoice {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 5em;
-    color: $primaryColor;
-    margin: 2em 0;
-    &__unique {
-      display: flex;
-      flex-direction: row;
-      input {
-        appearance: none;
-        width: 2em;
-        height: 2em;
-        border-radius: 50%;
-        border: 0.25em solid $primaryColor;
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        margin-right: 1em;
-        transition: all 100ms ease-in-out;
-        &:checked {
-          border: 0.6em solid $primaryColor;
-          box-shadow: 0 0 25px $primaryColor, 0 0 3px $secondaryColor;
-        }
-        &:hover {
-          cursor: pointer;
-        }
-      }
-      label {
-        font-size: 22px;
-        font-weight: 700;
-        margin-right: 2em;
-      }
-    }
-  }
+
   &__results {
     width: 100%;
     display: flex;
@@ -115,9 +90,13 @@
           flex-direction: column;
           align-items: center;
           font-size: 32px;
-          font-weight: 600;
+          font-weight: 700;
           padding: 0 1em;
           overflow: hidden;
+          @include smalldesk {
+            font-size: 28px;
+            font-weight: 600;
+          }
           p {
             text-align: center;
             width: 100%;
@@ -126,14 +105,18 @@
             white-space: nowrap;
           }
         }
-        &__character {
+        &__releaseDate {
           width: 24%;
           display: flex;
           flex-direction: column;
           align-items: center;
-          font-size: 32px;
+          font-size: 30px;
           font-weight: 600;
           text-align: center;
+          @include smalldesk {
+            font-size: 26px;
+            font-weight: 500;
+          }
         }
       }
     }

@@ -1,0 +1,25 @@
+// Responsive design media queries
+
+@mixin smalldesk {
+  @media screen and (min-width: 1025px) and (max-width: 1366px) {
+    @content;
+  }
+}
+
+@mixin lores {
+  @media screen and (min-width: 768px) and (max-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media screen and (min-width: 360px) and (max-width: 767px) {
+    @content;
+  }
+}
+
+@mixin xsmobile {
+  @media screen and (max-width: 359px) {
+    @content;
+  }
+}

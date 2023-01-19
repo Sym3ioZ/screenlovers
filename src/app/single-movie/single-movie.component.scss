@@ -1,14 +1,20 @@
 @import "../../variables";
+@import "../../mixins";
 
 .singleMovie {
   width: 100%;
   z-index: -2;
   padding: 10% 0;
-
+  @include smalldesk {
+    padding: 12% 0;
+  }
   &__title {
     color: $primaryColor;
     font-size: 80px;
     text-align: center;
+    @include smalldesk {
+      font-size: 72px;
+    }
   }
   &__subTitle {
     display: -webkit-box;
@@ -31,6 +37,9 @@
       margin-bottom: 20px;
       font-size: 24px;
       font-weight: 500;
+      @include smalldesk {
+        font-size: 22px;
+      }
     }
     span {
       text-indent: 0.5em;
@@ -39,6 +48,9 @@
       margin-bottom: 20px;
       font-size: 24px;
       font-weight: 300;
+      @include smalldesk {
+        font-size: 22px;
+      }
     }
   }
 
@@ -113,6 +125,10 @@
           color: $primaryColor;
           text-shadow: 0 0 5px $primaryColor;
           margin: 0 10px;
+          @include smalldesk {
+            font-size: 18px;
+            margin: 0 5px;
+          }
           padding: 5px;
         }
       }
@@ -189,6 +205,9 @@
               font-size: 18px;
               font-weight: 500;
               text-align: center;
+              @include smalldesk {
+                font-size: 16px;
+              }
             }
           }
         }
@@ -206,6 +225,7 @@
         -ms-flex-pack: left;
         justify-content: left;
         &__list {
+          width: 20%;
           display: -webkit-box;
           display: -ms-flexbox;
           display: flex;
@@ -213,11 +233,11 @@
           -ms-flex-pack: center;
           justify-content: center;
           img {
-            width: 35%;
+            width: 22%;
           }
         }
         &__genres {
-          width: 100%;
+          width: 75%;
           display: -webkit-box;
           display: -ms-flexbox;
           display: flex;
@@ -317,6 +337,22 @@
               -webkit-transition: all 100ms ease-in-out;
               -o-transition: all 100ms ease-in-out;
               transition: all 100ms ease-in-out;
+              @include smalldesk {
+                font-size: 16px;
+              }
+            }
+            &__character {
+              margin: 5px 5px 0 5px;
+              border-top: dashed 2px $backgroundColor;
+              color: $backgroundColor;
+              font-size: 16px;
+              text-align: center;
+              -webkit-transition: all 100ms ease-in-out;
+              -o-transition: all 100ms ease-in-out;
+              transition: all 100ms ease-in-out;
+              @include smalldesk {
+                font-size: 14px;
+              }
             }
           }
           :hover {
@@ -572,6 +608,9 @@
     width: 50%;
     color: white;
     font-size: 20px;
+    @include smalldesk {
+      font-size: 14px;
+    }
     font-weight: 500;
     display: flex;
     flex-direction: row;
@@ -582,6 +621,9 @@
       border-radius: 2em;
       padding: 0.2em 0.3em;
       width: 12%;
+      @include smalldesk {
+        width: 15%;
+      }
       display: flex;
       flex-direction: row;
       justify-content: center;
@@ -621,4 +663,7 @@ h5 {
   text-align: left;
   margin-bottom: 10px;
   text-decoration: underline;
+  @include smalldesk {
+    font-size: 24px;
+  }
 }

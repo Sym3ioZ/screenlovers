@@ -1,8 +1,12 @@
 @import "../../variables";
+@import "../../mixins";
 
 .landing-page {
   width: 100%;
   padding: 10% 0;
+  @include smalldesk {
+    padding: 15% 0;
+  }
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -88,12 +92,18 @@
         color: $backgroundColor;
         font-size: 66px;
         text-align: center;
+        @include smalldesk {
+          font-size: 58px;
+        }
       }
       &__date {
         width: 100%;
         color: $backgroundColor;
         font-size: 40px;
         text-align: center;
+        @include smalldesk {
+          font-size: 36px;
+        }
       }
       &__buttons {
         width: 100%;
@@ -109,12 +119,16 @@
         -webkit-box-align: center;
         -ms-flex-align: center;
         align-items: center;
-        margin-bottom: 10%;
+        margin-bottom: 5%;
         &__unique {
           width: 200px;
           height: 150px;
           border: 5px solid $backgroundColor;
           border-radius: 20px;
+          transform: scale(1);
+          @include smalldesk {
+            transform: scale(0.75);
+          }
           display: -webkit-box;
           display: -ms-flexbox;
           display: flex;

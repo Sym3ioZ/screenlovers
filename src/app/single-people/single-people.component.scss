@@ -1,7 +1,11 @@
 @import "../../variables";
+@import "../../mixins";
 
 .singlePeople {
   padding: 10% 0;
+  @include smalldesk {
+    padding: 12% 0;
+  }
   width: 100%;
   &__block {
     width: 100%;
@@ -14,6 +18,10 @@
       font-size: 80px;
       text-align: center;
       margin-bottom: 50px;
+      @include smalldesk {
+        font-size: 70px;
+        margin-bottom: 30px;
+      }
     }
     &__card {
       width: 95%;
@@ -41,10 +49,14 @@
           font-size: 22px;
           font-weight: 700;
           text-align: justify;
+          @include smalldesk {
+            font-size: 20px;
+          }
         }
         &__bio {
           text-indent: 5em;
           margin-bottom: 50px;
+          font-weight: 500 !important;
           color: white !important;
         }
         &__movies {
@@ -165,10 +177,14 @@
       }
     }
     &__tmdbLink {
-      margin: 5em 0 -5em 5em;
-      width: 100%;
+      margin: 5em 0 0 -25em;
+      width: 50%;
       color: white;
       font-size: 20px;
+      @include smalldesk {
+        font-size: 14px;
+        margin: 5em 0 0 -30em;
+      }
       font-weight: 500;
       display: flex;
       flex-direction: row;
@@ -178,7 +194,10 @@
         margin-left: 1em;
         border-radius: 2em;
         padding: 0.2em 0.3em;
-        width: 6%;
+        width: 12%;
+        @include smalldesk {
+          width: 15%;
+        }
         display: flex;
         flex-direction: row;
         justify-content: center;

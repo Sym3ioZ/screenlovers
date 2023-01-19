@@ -16,9 +16,11 @@ export class ServicesService {
 
   getUniqueMovie(movieId: number): Observable<any> {
     // Fetching TMDB API to retrieve movie data from ID
-    return this.http.get<object>(
-      `https://api.themoviedb.org/3/movie/${movieId}?api_key=032445021a055e1fc596f3292981c16d&language=fr-FR&include_adult=false`
-    );
+    return this.http
+      .get<object>(
+        `https://api.themoviedb.org/3/movie/${movieId}?api_key=032445021a055e1fc596f3292981c16d&language=fr-FR&include_adult=false`
+      )
+      .pipe(tap((value) => console.log(value)));
   }
 
   getUniqueMovieCredits(movieId: number): Observable<any> {

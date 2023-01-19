@@ -1,8 +1,12 @@
 @import "../../variables";
+@import "../../mixins";
 
 .search {
   width: 100%;
   padding: 10% 0;
+  @include smalldesk {
+    padding: 12% 0;
+  }
   color: $primaryColor;
   display: flex;
   flex-direction: column;
@@ -25,6 +29,10 @@
         font-size: 24px;
         font-weight: 800;
         margin-left: 1em;
+        @include smalldesk {
+          font-size: 22px;
+          font-weight: 700;
+        }
       }
       &__radio {
         display: flex;
@@ -45,6 +53,9 @@
           &:checked {
             border: 0.6em solid $primaryColor;
             box-shadow: 0 0 25px $primaryColor, 0 0 3px $secondaryColor;
+            @include smalldesk {
+              box-shadow: 0 0 15px $primaryColor, 0 0 2px $secondaryColor;
+            }
           }
           &:hover {
             cursor: pointer;
@@ -54,6 +65,10 @@
           font-size: 22px;
           font-weight: 700;
           margin-right: 2em;
+          @include smalldesk {
+            font-size: 20px;
+            font-weight: 500;
+          }
         }
       }
       &__text {
@@ -70,12 +85,19 @@
         padding: 10px 5px;
         transition: all 100ms ease-in-out;
         text-decoration: none;
+        @include smalldesk {
+          width: 40%;
+          font-size: 20px;
+        }
         &:focus,
         &:active {
           appearance: none;
           border: 2px solid $primaryColor;
           outline: none;
           box-shadow: 0 0 25px $primaryColor, 0 0 3px $secondaryColor;
+          @include smalldesk {
+            box-shadow: 0 0 15px $primaryColor, 0 0 2px $secondaryColor;
+          }
         }
       }
       &__submit {
@@ -88,11 +110,18 @@
         font-weight: 800;
         border-radius: 1em;
         transition: all 100ms ease-in-out;
+        @include smalldesk {
+          font-size: 22px;
+          font-weight: 700;
+        }
         &:hover {
           cursor: pointer;
           background-color: $primaryColor;
           color: $backgroundColor;
           box-shadow: 0 0 25px $primaryColor, 0 0 3px $secondaryColor;
+          @include smalldesk {
+            box-shadow: 0 0 15px $primaryColor, 0 0 2px $secondaryColor;
+          }
         }
       }
     }
@@ -105,11 +134,18 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    @include smalldesk {
+      margin-top: 50px;
+    }
     &__none {
       color: $primaryColor;
       font-size: 42px;
       font-weight: 800;
       text-align: center;
+      @include smalldesk {
+        font-size: 36px;
+        font-weight: 700;
+      }
     }
     &__movies,
     &__people {
@@ -118,6 +154,9 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      @include smalldesk {
+        width: 90%;
+      }
       &__list {
         width: 100%;
         display: flex;
@@ -183,6 +222,10 @@
               overflow: hidden;
               text-overflow: ellipsis;
               white-space: nowrap;
+              @include smalldesk {
+                font-size: 32px;
+                font-weight: 700;
+              }
             }
             p:last-child {
               width: 15%;
@@ -191,6 +234,10 @@
               font-weight: 700;
               color: $backgroundColor;
               text-align: center;
+              @include smalldesk {
+                font-size: 28px;
+                font-weight: 500;
+              }
             }
             &__movies {
               width: 30%;
