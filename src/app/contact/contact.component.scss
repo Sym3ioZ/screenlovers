@@ -10,6 +10,9 @@
   @include smalldesk {
     padding: 12% 0;
   }
+  @include lores {
+    padding: 13% 0;
+  }
   &__message {
     width: 95%;
     display: flex;
@@ -27,6 +30,10 @@
         font-size: 48px;
         font-weight: 700;
       }
+      @include lores {
+        font-size: 48px;
+        font-weight: 700;
+      }
     }
     p {
       font-size: 22px;
@@ -41,6 +48,9 @@
       }
       @include smalldesk {
         font-size: 20px;
+      }
+      @include lores {
+        font-size: 18px;
       }
     }
   }
@@ -65,6 +75,9 @@
         @include smalldesk {
           font-size: 42px;
         }
+        @include lores {
+          font-size: 38px;
+        }
       }
       a {
         text-decoration: none;
@@ -75,6 +88,9 @@
         transform: scale(1);
         @include smalldesk {
           font-size: 22px;
+        }
+        @include lores {
+          font-size: 20px;
         }
         &::before {
           pointer-events: none;
@@ -101,6 +117,9 @@
           color: $primaryColor;
           text-shadow: 0 0 25px $primaryColor, 0 0 3px $secondaryColor;
           transform: scale(1.05);
+          @include lores {
+            transform: scale(1.03);
+          }
           &::before {
             opacity: 1;
           }

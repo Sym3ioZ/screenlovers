@@ -12,7 +12,9 @@
           checked
           (change)="choiceChanger($event)"
         />
-        <label for="movie">Film</label>
+        <label for="movie" class="search__form__choice__radio__movieLabel"
+          >Film</label
+        >
         <input
           type="radio"
           id="people"
@@ -139,7 +141,10 @@
           </div>
           <div class="search__results__people__list__unique__title">
             <p>{{ people.name }}</p>
-            <div class="search__results__people__list__unique__title__movies">
+            <div
+              class="search__results__people__list__unique__title__movies"
+              *ngIf="people.known_for[0].poster_path"
+            >
               <div
                 class="search__results__people__list__unique__title__movies__unique"
                 *ngFor="let movie of people.known_for; let i = index"

@@ -8,12 +8,18 @@
   @include smalldesk {
     padding: 12% 0;
   }
+  @include lores {
+    padding: 13% 0;
+  }
   &__title {
     color: $primaryColor;
     font-size: 80px;
     text-align: center;
     @include smalldesk {
       font-size: 72px;
+    }
+    @include lores {
+      font-size: 60px;
     }
   }
   &__subTitle {
@@ -40,6 +46,9 @@
       @include smalldesk {
         font-size: 22px;
       }
+      @include lores {
+        font-size: 20px;
+      }
     }
     span {
       text-indent: 0.5em;
@@ -50,6 +59,9 @@
       font-weight: 300;
       @include smalldesk {
         font-size: 22px;
+      }
+      @include lores {
+        font-size: 20px;
       }
     }
   }
@@ -67,7 +79,10 @@
     padding: 0 75px;
     position: relative;
     overflow: hidden;
-
+    @include lores {
+      padding: 70px 0;
+      align-items: flex-start;
+    }
     &__leftPick {
       position: absolute;
       top: 25%;
@@ -76,6 +91,13 @@
       border-radius: 50%;
       width: 100px;
       height: 50%;
+      @include lores {
+        width: 90px;
+        height: 40%;
+        transform: rotate(90deg);
+        top: -20%;
+        left: 45%;
+      }
     }
     &__rightPick {
       position: absolute;
@@ -85,6 +107,13 @@
       border-radius: 50%;
       width: 100px;
       height: 50%;
+      @include lores {
+        width: 90px;
+        height: 40%;
+        transform: rotate(-90deg);
+        top: 80%;
+        left: 45%;
+      }
     }
 
     &__poster {
@@ -104,6 +133,10 @@
       -webkit-box-align: center;
       -ms-flex-align: center;
       align-items: center;
+      @include lores {
+        width: 40%;
+        padding: 0 10px;
+      }
       &__image {
         width: 100%;
       }
@@ -129,6 +162,10 @@
             font-size: 18px;
             margin: 0 5px;
           }
+          @include lores {
+            font-size: 18px;
+            margin: 0 5px;
+          }
           padding: 5px;
         }
       }
@@ -142,6 +179,9 @@
         font-weight: 700;
         text-indent: 5em;
         text-align: justify;
+        @include lores {
+          font-size: 18px;
+        }
       }
       width: 75%;
       padding: 15px 0 0 25px;
@@ -155,6 +195,10 @@
       -webkit-box-pack: justify;
       -ms-flex-pack: justify;
       justify-content: space-between;
+      @include lores {
+        width: 60%;
+        padding: 0 10px;
+      }
       &__production {
         width: 100%;
         display: -webkit-box;
@@ -208,6 +252,9 @@
               @include smalldesk {
                 font-size: 16px;
               }
+              @include lores {
+                font-size: 14px;
+              }
             }
           }
         }
@@ -224,6 +271,13 @@
         -webkit-box-pack: left;
         -ms-flex-pack: left;
         justify-content: left;
+        @include lores {
+          flex-direction: column;
+          justify-content: space-around;
+          align-items: center;
+          gap: 1em;
+          margin-top: 2em;
+        }
         &__list {
           width: 20%;
           display: -webkit-box;
@@ -232,8 +286,15 @@
           -webkit-box-pack: center;
           -ms-flex-pack: center;
           justify-content: center;
+          @include lores {
+            flex-direction: row;
+            width: 100%;
+          }
           img {
             width: 22%;
+            @include lores {
+              width: 8%;
+            }
           }
         }
         &__genres {
@@ -250,10 +311,20 @@
           align-items: center;
           -ms-flex-pack: distribute;
           justify-content: space-around;
+          @include lores {
+            width: 100%;
+          }
           h6 {
             font-size: 26px;
             color: $backgroundColor;
             font-weight: 600;
+            @include smalldesk {
+              font-size: 24px;
+            }
+            @include lores {
+              font-size: 22px;
+              font-weight: 500;
+            }
           }
         }
       }
@@ -340,6 +411,9 @@
               @include smalldesk {
                 font-size: 16px;
               }
+              @include lores {
+                font-size: 16px;
+              }
             }
             &__character {
               margin: 5px 5px 0 5px;
@@ -351,6 +425,9 @@
               -o-transition: all 100ms ease-in-out;
               transition: all 100ms ease-in-out;
               @include smalldesk {
+                font-size: 14px;
+              }
+              @include lores {
                 font-size: 14px;
               }
             }
@@ -611,6 +688,9 @@
     @include smalldesk {
       font-size: 14px;
     }
+    @include lores {
+      font-size: 14px;
+    }
     font-weight: 500;
     display: flex;
     flex-direction: row;
@@ -622,6 +702,9 @@
       padding: 0.2em 0.3em;
       width: 12%;
       @include smalldesk {
+        width: 15%;
+      }
+      @include lores {
         width: 15%;
       }
       display: flex;
@@ -665,5 +748,9 @@ h5 {
   text-decoration: underline;
   @include smalldesk {
     font-size: 24px;
+  }
+  @include lores {
+    font-size: 24px;
+    font-weight: 700;
   }
 }

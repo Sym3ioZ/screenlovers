@@ -1,4 +1,5 @@
 @import "../../variables";
+@import "../../mixins";
 
 footer {
   width: 100%;
@@ -21,11 +22,12 @@ footer {
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
-    padding: 2px 0;
+    padding: 3px 0;
     &__unique {
       width: 30%;
       color: $backgroundColor;
       font-weight: 500;
+      font-size: 20px;
       display: -webkit-box;
       display: -ms-flexbox;
       display: flex;
@@ -39,11 +41,21 @@ footer {
       -webkit-box-align: center;
       -ms-flex-align: center;
       align-items: center;
+      @include smalldesk {
+        font-size: 18px;
+      }
+      @include lores {
+        font-size: 16px;
+        font-weight: 400;
+      }
       a {
         background-color: $backgroundColorA;
         border-radius: 20px;
         width: 25%;
-        padding: 0 2%;
+        @include lores {
+          width: 33%;
+        }
+        padding: 0.5% 2%;
         display: flex;
         flex-direction: row;
         justify-content: center;
@@ -53,9 +65,9 @@ footer {
           cursor: pointer;
           background-color: $backgroundColor;
         }
-      }
-      img {
-        width: 100%;
+        img {
+          width: 100%;
+        }
       }
     }
   }
