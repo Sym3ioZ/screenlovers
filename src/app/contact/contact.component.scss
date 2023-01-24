@@ -13,6 +13,12 @@
   @include lores {
     padding: 13% 0;
   }
+  @include mobile {
+    padding: 15% 0;
+  }
+  @include xsmobile {
+    padding: 15% 0;
+  }
   &__message {
     width: 95%;
     display: flex;
@@ -34,6 +40,14 @@
         font-size: 48px;
         font-weight: 700;
       }
+      @include mobile {
+        font-size: 42px;
+        font-weight: 700;
+      }
+      @include xsmobile {
+        font-size: 38px;
+        font-weight: 700;
+      }
     }
     p {
       font-size: 22px;
@@ -52,6 +66,12 @@
       @include lores {
         font-size: 18px;
       }
+      @include mobile {
+        font-size: 16px;
+      }
+      @include xsmobile {
+        font-size: 14px;
+      }
     }
   }
   &__links {
@@ -61,6 +81,14 @@
     flex-direction: column;
     justify-content: center;
     align-items: left;
+    @include mobile {
+      width: 100%;
+      padding: 0 0.5em;
+    }
+    @include xsmobile {
+      width: 100%;
+      padding: 0 0.5em;
+    }
     &__unique {
       margin-top: 2em;
       width: fit-content;
@@ -69,6 +97,20 @@
       justify-content: left;
       align-items: center;
       gap: 2.5em;
+      @include mobile {
+        width: 100%;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1em;
+      }
+      @include xsmobile {
+        width: 100%;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1em;
+      }
       i {
         color: $primaryColor;
         font-size: 48px;
@@ -77,6 +119,12 @@
         }
         @include lores {
           font-size: 38px;
+        }
+        @include mobile {
+          font-size: 32px;
+        }
+        @include xsmobile {
+          font-size: 32px;
         }
       }
       a {
@@ -91,6 +139,12 @@
         }
         @include lores {
           font-size: 20px;
+        }
+        @include mobile {
+          font-size: 16px;
+        }
+        @include xsmobile {
+          font-size: 14px;
         }
         &::before {
           pointer-events: none;
@@ -119,6 +173,12 @@
           transform: scale(1.05);
           @include lores {
             transform: scale(1.03);
+          }
+          @include mobile {
+            transform: scale(1.02);
+          }
+          @include xsmobile {
+            transform: scale(1.02);
           }
           &::before {
             opacity: 1;

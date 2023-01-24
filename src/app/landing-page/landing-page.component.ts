@@ -21,14 +21,17 @@ export class LandingPageComponent implements OnInit {
   }
 
   onDiscover() {
+    window.scrollTo({ top: 0 });
     this.ngOnInit(); // Kind of reloading the component to display another random movie
   }
 
   onGetMoviePage(movieId: number) {
+    window.scrollTo({ top: 0 });
     this.router.navigateByUrl(`singlemovie/${movieId}`); // Links to the single movie page associated to the actual featured movie
   }
 
   onGoHome(): void {
-    this.router.navigateByUrl('home');
+    window.scrollTo({ top: 0 });
+    this.router.navigateByUrl('home'); // Links to home page
   }
 }

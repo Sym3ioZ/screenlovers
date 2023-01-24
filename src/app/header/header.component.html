@@ -1,4 +1,15 @@
-<header>
+<div class="burger" (click)="toggleMenu()">
+  <div class="burger__button">
+    <div class="burger__button__bar" id="bar1"></div>
+    <div class="burger__button__bar" id="bar2"></div>
+    <div class="burger__button__bar" id="bar3"></div>
+    <div class="burger__button__arrows" id="burgerArrows">
+      <i class="fa-solid fa-down-left-and-up-right-to-center"></i>
+    </div>
+  </div>
+</div>
+
+<header *ngIf="menuToggle" id="header">
   <!-- Main logo -->
   <div class="logo">
     <img

@@ -85,10 +85,12 @@ export class SingleMovieComponent implements OnInit {
   }
 
   onViewImage(imageUrl: string) {
+    window.scrollTo({ top: 0 });
     this.router.navigateByUrl(`viewimage/${imageUrl}`);
   }
 
   onGetPeople(peopleId: number): any {
+    window.scrollTo({ top: 0 });
     this.router.navigateByUrl(`singlepeople/${peopleId}`);
   }
 

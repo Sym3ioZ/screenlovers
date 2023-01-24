@@ -19,9 +19,9 @@ export class ViewImageComponent implements OnInit {
 
   ngOnInit(): void {
     this.imageUrl = this.route.snapshot.params['imageUrl']; // Retrieving imageUrl from URL parameters
-    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
+  // On clicking download button, funtion to create download url, then simulate an "a" tag with download action automatically
   downloadPoster() {
     fetch('https://proxy.cors.sh/' + this.posterUrl + this.imageUrl)
       .then((res) => res.blob())

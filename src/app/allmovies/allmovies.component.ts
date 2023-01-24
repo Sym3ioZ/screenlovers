@@ -26,10 +26,12 @@ export class AllmoviesComponent implements OnInit {
   }
 
   onGetUniqueMovie(movieId: number): void {
+    window.scrollTo({ top: 0 });
     this.router.navigateByUrl(`singlemovie/${movieId}`);
   }
 
   onGetUniquePeople(peopleId: number): void {
+    window.scrollTo({ top: 0 });
     this.router.navigateByUrl(`singlepeople/${peopleId}`);
   }
 }

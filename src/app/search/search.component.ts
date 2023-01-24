@@ -36,10 +36,12 @@ export class SearchComponent implements OnInit {
   }
 
   onGetMovie(movieId: number): void {
+    window.scrollTo({ top: 0 });
     this.router.navigateByUrl(`singlemovie/${movieId}`);
   }
 
   onGetPeople(peopleId: number): void {
+    window.scrollTo({ top: 0 });
     this.router.navigateByUrl(`singlepeople/${peopleId}`);
   }
 }

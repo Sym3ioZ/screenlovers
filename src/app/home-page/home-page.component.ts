@@ -21,19 +21,24 @@ export class HomePageComponent implements OnInit {
   }
 
   onGetMovie(movieId: number): any {
+    window.scrollTo({ top: 0 });
     this.router.navigateByUrl(`singlemovie/${movieId}`);
   }
 
   onGetPeople(peopleId: number): any {
+    window.scrollTo({ top: 0 });
     this.router.navigateByUrl(`singlepeople/${peopleId}`);
   }
 
-  // On clicking ? link
+  // On clicking ? link, redirects to random movie page (landing page)
   onDiscover() {
+    window.scrollTo({ top: 0 });
     this.router.navigateByUrl('');
   }
 
+  // On clicking search link, redirects to search page
   onSearch(): void {
+    window.scrollTo({ top: 0 });
     this.router.navigateByUrl('search');
   }
 }

@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 export class ContactComponent {
   constructor(private router: Router) {}
   onHome(): void {
+    window.scrollTo({ top: 0 });
     this.router.navigateByUrl('home');
   }
 }

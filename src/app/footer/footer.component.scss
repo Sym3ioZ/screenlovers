@@ -5,11 +5,25 @@ footer {
   width: 100%;
   position: absolute;
   bottom: 0;
-  margin-top: 50px;
+  padding-top: 50px;
+  box-shadow: 0px -100px 25px -75px $primaryColor inset;
+  @include mobile {
+    background-color: $primaryColor;
+    box-shadow: 150px -0px 50px -75px $backgroundColor inset,
+      -150px -0px 50px -75px $backgroundColor inset;
+    padding-top: 0;
+  }
+  @include xsmobile {
+    background-color: $primaryColor;
+    padding-top: 0;
+    box-shadow: 150px -0px 50px -75px $backgroundColor inset,
+      -150px -0px 50px -75px $backgroundColor inset;
+  }
 }
 .navmenu {
   width: 100%;
   &__list {
+    width: 100%;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -23,6 +37,14 @@ footer {
     -ms-flex-align: center;
     align-items: center;
     padding: 3px 0;
+    @include mobile {
+      flex-direction: column;
+      justify-content: center;
+    }
+    @include xsmobile {
+      flex-direction: column;
+      justify-content: center;
+    }
     &__unique {
       width: 30%;
       color: $backgroundColor;
@@ -47,6 +69,16 @@ footer {
       @include lores {
         font-size: 16px;
         font-weight: 400;
+      }
+      @include mobile {
+        width: 100%;
+        font-size: 14px;
+        font-weight: 300;
+      }
+      @include xsmobile {
+        width: 100%;
+        font-size: 12px;
+        font-weight: 300;
       }
       a {
         background-color: $backgroundColorA;

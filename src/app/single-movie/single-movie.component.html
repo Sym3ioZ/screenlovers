@@ -6,7 +6,7 @@
     *ngIf="uniqueMovieCredits$ | async as movieCredits"
   >
     <span class="singleMovie__subTitle__date">
-      sortie le: {{ movie.release_date | date : "d MMMM yyyy" }}</span
+      sortie: {{ movie.release_date | date : "d MMMM yyyy" }}</span
     >
   </div>
   <!-- Main movie features (with the ticket design) -->
@@ -80,15 +80,17 @@
       </div>
       <!-- Displays production countries (with flags) and genres associated to the movie -->
       <div class="singleMovie__block__description__countries">
-        <div
-          class="singleMovie__block__description__countries__list"
-          *ngFor="let country of movie.production_countries"
-        >
-          <img
-            [src]="'../../assets/flags/128x128/' + country.iso_3166_1 + '.png'"
-            title="{{ country.name }}"
-          />
+        <div class="singleMovie__block__description__countries__list">
+          <div *ngFor="let country of movie.production_countries">
+            <img
+              [src]="
+                '../../assets/flags/128x128/' + country.iso_3166_1 + '.png'
+              "
+              title="{{ country.name }}"
+            />
+          </div>
         </div>
+
         <div class="singleMovie__block__description__countries__genres">
           <h6 *ngFor="let genre of movie.genres">{{ genre.name }}</h6>
         </div>
@@ -252,7 +254,7 @@
               : 'singleMovie__media__block__tabsBlock__tab'
           "
         >
-          Bande-Annonce
+          Bande Annonce
         </div>
         <div
           class="singleMovie__media__block__tabsBlock__tab"

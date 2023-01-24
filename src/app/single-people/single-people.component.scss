@@ -6,6 +6,9 @@
   @include smalldesk {
     padding: 12% 0;
   }
+  @include lores {
+    padding: 12% 0;
+  }
   width: 100%;
   &__block {
     width: 100%;
@@ -19,6 +22,10 @@
       text-align: center;
       margin-bottom: 50px;
       @include smalldesk {
+        font-size: 70px;
+        margin-bottom: 30px;
+      }
+      @include lores {
         font-size: 70px;
         margin-bottom: 30px;
       }
@@ -52,12 +59,18 @@
           @include smalldesk {
             font-size: 20px;
           }
+          @include lores {
+            font-size: 20px;
+          }
         }
         &__bio {
           text-indent: 5em;
           margin-bottom: 50px;
           font-weight: 500 !important;
           color: white !important;
+          @include lores {
+            font-weight: 400 !important;
+          }
         }
         &__movies {
           width: 100%;
@@ -184,6 +197,10 @@
       @include smalldesk {
         font-size: 14px;
         margin: 5em 0 0 -30em;
+      }
+      @include lores {
+        font-size: 14px;
+        margin: 5em 0 0 -20em;
       }
       font-weight: 500;
       display: flex;

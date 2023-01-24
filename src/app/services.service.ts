@@ -16,11 +16,9 @@ export class ServicesService {
 
   getUniqueMovie(movieId: number): Observable<any> {
     // Fetching TMDB API to retrieve movie data from ID
-    return this.http
-      .get<object>(
-        `https://api.themoviedb.org/3/movie/${movieId}?api_key=032445021a055e1fc596f3292981c16d&language=fr-FR&include_adult=false`
-      )
-      .pipe(tap((value) => console.log(value)));
+    return this.http.get<object>(
+      `https://api.themoviedb.org/3/movie/${movieId}?api_key=032445021a055e1fc596f3292981c16d&language=fr-FR&include_adult=false`
+    );
   }
 
   getUniqueMovieCredits(movieId: number): Observable<any> {
@@ -43,18 +41,21 @@ export class ServicesService {
   }
 
   getUniquePeople(peopleId: number): Observable<any> {
+    // Fetching TMDB API to retrieve unique person details
     return this.http.get<object>(
       `https://api.themoviedb.org/3/person/${peopleId}?api_key=032445021a055e1fc596f3292981c16d&language=fr-FR`
     );
   }
 
   getUniquePeopleImages(peopleId: number): Observable<any> {
+    // Fetching TMDB API to retrieve unique person images
     return this.http.get<object>(
       `https://api.themoviedb.org/3/person/${peopleId}/images?api_key=032445021a055e1fc596f3292981c16d`
     );
   }
 
   getUniquePeopleMovies(peopleId: number, dept: string): Observable<any> {
+    // Fetching TMDB API to retrieve movies from a unique person, and filter them to display only 6 best movies
     return this.http
       .get<any>(
         `https://api.themoviedb.org/3/person/${peopleId}/movie_credits?api_key=032445021a055e1fc596f3292981c16d&language=fr-FR`
@@ -77,11 +78,13 @@ export class ServicesService {
   }
 
   getPeopleAllMovies(peopleId: number): Observable<any> {
+    // Fetching TMDB API to retrieve all movies from one unique person
     return this.http
       .get<any>(
         `https://api.themoviedb.org/3/person/${peopleId}/movie_credits?api_key=032445021a055e1fc596f3292981c16d&language=fr-FR`
       )
       .pipe(
+        // Joining cast and crew arrays, also filtering crew array to retrieve only impoortant movies (as director or writer)
         map((value) =>
           value.cast.concat(
             value.crew.filter(
@@ -90,7 +93,7 @@ export class ServicesService {
             )
           )
         ),
-        tap((value) => console.log(value)),
+        // Checking the newly created array to delete duplicate values
         map((array) => {
           for (let i = 0; i < array.length - 1; i++) {
             for (let j = i + 1; j < array.length; j++) {
@@ -101,6 +104,7 @@ export class ServicesService {
           }
           return array;
         }),
+        // Sorting the final array by release date
         map((value) =>
           value.sort((a: any, b: any) =>
             a.release_date < b.release_date ? 1 : -1
@@ -157,6 +161,7 @@ export class ServicesService {
   }
 
   getUniqueMovieTrailer(movieId: number): Observable<any> {
+    // Fetching TMDB API to retrieve a trailer from the actual movie
     return this.http
       .get<any>(
         `https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=032445021a055e1fc596f3292981c16d`
@@ -167,12 +172,12 @@ export class ServicesService {
           array.filter(
             (element: { type: string }) => element.type === 'Trailer'
           )
-        ),
-        tap((value) => console.log(value))
+        )
       );
   }
 
   getUniqueMoviePosters(movieId: number): Observable<any> {
+    // Fetching TMDB API to retrieve all movie posters
     return this.http
       .get<any>(
         `https://api.themoviedb.org/3/movie/${movieId}/images?api_key=032445021a055e1fc596f3292981c16d`
@@ -181,6 +186,7 @@ export class ServicesService {
   }
 
   getUniqueMovieWallpapers(movieId: number): Observable<any> {
+    // Fetching TMDB API to retrieve all movie wallpapers (backdrops)
     return this.http
       .get<any>(
         `https://api.themoviedb.org/3/movie/${movieId}/images?api_key=032445021a055e1fc596f3292981c16d`
@@ -189,6 +195,7 @@ export class ServicesService {
   }
 
   getTrendingMovies(): Observable<any> {
+    // Fetching TMDB API to retrieve trending movies, then keep only first 9 results
     return this.http
       .get<any>(
         'https://api.themoviedb.org/3/trending/movie/day?api_key=032445021a055e1fc596f3292981c16d&language=fr&include_adult=false'
@@ -206,13 +213,13 @@ export class ServicesService {
   }
 
   getTrendingPeople(): Observable<any> {
+    // Fetching TMDB API to retrieve trending people, then keep only first 9 results
     return this.http
       .get<any>(
         'https://api.themoviedb.org/3/trending/person/day?api_key=032445021a055e1fc596f3292981c16d&include_adult=false'
       )
       .pipe(
         map((obj) => obj.results),
-        tap((value) => console.log(value)),
         map((value) =>
           value.sort((a: any, b: any) => (a.popularity < b.popularity ? 1 : -1))
         ),
@@ -227,16 +234,16 @@ export class ServicesService {
   }
 
   searchMovie(query: string, page: number): Observable<any> {
+    // Fetching TMDB API to query a search for movies with a string, and a page number meaning the page of results to display
     return this.http.get<Object>(
       `https://api.themoviedb.org/3/search/movie?api_key=032445021a055e1fc596f3292981c16d&query=${query}&page=${page}&language=fr-FR&include_adult=false`
     );
   }
 
   searchPeople(query: string, page: number): Observable<any> {
-    return this.http
-      .get<Object>(
-        `https://api.themoviedb.org/3/search/person?api_key=032445021a055e1fc596f3292981c16d&query=${query}&page=${page}&language=fr-FR&include_adult=false`
-      )
-      .pipe(tap((value) => console.log(value)));
+    // Fetching TMDB API to query a search for people with a string, and a page number meaning the page of results to display
+    return this.http.get<Object>(
+      `https://api.themoviedb.org/3/search/person?api_key=032445021a055e1fc596f3292981c16d&query=${query}&page=${page}&language=fr-FR&include_adult=false`
+    );
   }
 }

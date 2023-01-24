@@ -11,6 +11,15 @@
   @include smalldesk {
     padding: 12% 0;
   }
+  @include lores {
+    padding: 12% 0;
+  }
+  @include mobile {
+    padding: 15% 0 22% 0;
+  }
+  @include xsmobile {
+    padding: 15% 0 22% 0;
+  }
   &__peopleName {
     margin-bottom: 2%;
     display: flex;
@@ -26,6 +35,16 @@
         font-size: 48px;
         font-weight: 700;
       }
+      @include lores {
+        font-size: 48px;
+        font-weight: 600;
+      }
+      @include mobile {
+        font-size: 42px;
+      }
+      @include xsmobile {
+        font-size: 36px;
+      }
     }
     p {
       width: fit-content;
@@ -37,6 +56,18 @@
       transition: all 100ms ease-in-out;
       @include smalldesk {
         font-size: 36px;
+      }
+      @include lores {
+        font-size: 32px;
+        font-weight: 600;
+      }
+      @include mobile {
+        font-size: 28px;
+        font-weight: 500;
+      }
+      @include xsmobile {
+        font-size: 24px;
+        font-weight: 500;
       }
       &:hover {
         cursor: pointer;
@@ -64,28 +95,49 @@
         border-top: 10px solid $backgroundColor;
         border-bottom: 10px solid $backgroundColor;
         transition: all 150ms ease-in-out;
+        @include lores {
+          flex-direction: column;
+        }
+        @include mobile {
+          flex-direction: column;
+        }
+        @include xsmobile {
+          flex-direction: column;
+        }
         &:hover {
           cursor: pointer;
           background-color: $backgroundColor;
           color: $primaryColor;
           img {
-            transform: scale(1.22);
+            transform: scale(1.25);
           }
         }
         &__poster {
           width: 10%;
           border-right: 15px solid $backgroundColor;
           overflow: hidden;
+          @include lores {
+            width: 20%;
+            border-right: none;
+          }
+          @include mobile {
+            width: 50%;
+            border-right: none;
+          }
+          @include xsmobile {
+            width: 50%;
+            border-right: none;
+          }
           img {
             width: 100%;
-            transform: scale(1.025);
+            transform: scale(1.1);
             transform-origin: top;
             transition: all 250ms ease-in-out;
           }
         }
         &__title {
-          width: 66%;
-          max-width: 66%;
+          width: 100%;
+          max-width: 100%;
           display: flex;
           flex-direction: column;
           align-items: center;
@@ -97,16 +149,38 @@
             font-size: 28px;
             font-weight: 600;
           }
+          @include lores {
+            font-size: 26px;
+            font-weight: 600;
+          }
+          @include mobile {
+            font-size: 22px;
+            font-weight: 500;
+          }
+          @include xsmobile {
+            font-size: 20px;
+            font-weight: 500;
+          }
           p {
             text-align: center;
             width: 100%;
             overflow: hidden;
             text-overflow: ellipsis;
             white-space: nowrap;
+            @include mobile {
+              overflow: auto;
+              text-overflow: inherit;
+              white-space: normal;
+            }
+            @include xsmobile {
+              overflow: auto;
+              text-overflow: inherit;
+              white-space: normal;
+            }
           }
         }
         &__releaseDate {
-          width: 24%;
+          width: 20%;
           display: flex;
           flex-direction: column;
           align-items: center;
@@ -116,6 +190,18 @@
           @include smalldesk {
             font-size: 26px;
             font-weight: 500;
+          }
+          @include lores {
+            font-size: 26px;
+            font-weight: 500;
+          }
+          @include mobile {
+            font-size: 22px;
+            font-weight: 400;
+          }
+          @include xsmobile {
+            font-size: 18px;
+            font-weight: 400;
           }
         }
       }
