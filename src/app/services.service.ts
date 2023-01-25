@@ -134,30 +134,27 @@ export class ServicesService {
     // Establishing a random date within the last 100 years
     this.randomNumber = Math.floor(Math.random() * 100);
     this.randomYear = this.actualDate.getFullYear() - (this.randomNumber + 1);
-    this.randomPreDate = new Date(
-      (this.actualDate.getMonth() === 0
-        ? this.randomYear - 1
-        : this.randomYear) +
-        '-' +
-        (this.actualDate.getMonth() === 0 ? 12 : this.actualDate.getMonth()) +
-        '-' +
-        this.actualDate.getDate()
-    ).toISOString();
-    this.randomPostDate = new Date(
-      (this.actualDate.getMonth() === 11
-        ? this.randomYear + 1
-        : this.randomYear) +
-        '-' +
-        (this.actualDate.getMonth() === 11
-          ? 1
-          : this.actualDate.getMonth() + 2) +
-        '-' +
-        this.actualDate.getDate()
-    ).toISOString();
+
     // Fetching TMDB API to get a list of movies released within the gap defined, and with a minimum average note
-    return this.http.get<object>(
-      `https://api.themoviedb.org/3/discover/movie?api_key=032445021a055e1fc596f3292981c16d&language=fr-FR&primary_release_date.gte=${this.randomPreDate}&primary_release_date.lte=${this.randomPostDate}&vote_average.gte=7&include_adult=false`
-    );
+    return this.http
+      .get<any>(
+        `https://api.themoviedb.org/3/discover/movie?api_key=032445021a055e1fc596f3292981c16d&language=fr-FR&primary_release_year=${this.randomYear}&vote_count.gte=2&include_adult=false&without_keywords=softcore|hardcore|porn|porno|erotic|sex|sexual|erotica|gay`
+      )
+      .pipe(
+        map((value) => value.results),
+        map((value) => {
+          let array = [];
+          for (let i = 0; i < value.length; i++) {
+            if (
+              value[i].poster_path &&
+              (value[i].original_language === 'en' || 'fr')
+            ) {
+              array.push(value[i]);
+            }
+          }
+          return array;
+        })
+      );
   }
 
   getUniqueMovieTrailer(movieId: number): Observable<any> {

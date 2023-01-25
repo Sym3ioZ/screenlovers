@@ -5,4 +5,9 @@ import { Component } from '@angular/core';
   templateUrl: './loader.component.html',
   styleUrls: ['./loader.component.scss'],
 })
-export class LoaderComponent {}
+export class LoaderComponent {
+  enterSite(): void {
+    document.getElementById('disclaimer')!.style.display = 'none';
+    document.getElementById('loading')!.style.display = 'flex';
+  }
+}

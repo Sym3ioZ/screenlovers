@@ -1,6 +1,137 @@
+@import "../../mixins";
 @import "../../variables";
 @import "../../keyframes";
 
+.disclaimer {
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: $backgroundColor;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  &__block {
+    width: 75%;
+    border: double 6px $secondaryColor;
+    border-radius: 3em;
+    padding: 2em 2em 5em 2em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 15px 5px $primaryColor, 0 0 5px 2px $secondaryColor;
+    @include mobile {
+      width: 85%;
+      padding: 2em 0.3em 5em 0.3em;
+      box-shadow: 0 0 7px 3px $primaryColor, 0 0 5px 2px $secondaryColor;
+    }
+    @include xsmobile {
+      width: 90%;
+      padding: 2em 0.3em 5em 0.3em;
+      box-shadow: 0 0 7px 3px $primaryColor, 0 0 5px 2px $secondaryColor;
+    }
+    &__message {
+      width: 100%;
+      p {
+        color: $primaryColor;
+        font-size: 32px;
+        text-align: justify;
+        margin-bottom: 0.5em;
+        @include lores {
+          font-size: 28px;
+        }
+        @include mobile {
+          font-size: 16px;
+        }
+        @include xsmobile {
+          font-size: 14px;
+        }
+      }
+
+      h1 {
+        color: $secondaryColor;
+        margin-bottom: 0.5em;
+        font-size: 52px;
+        font-weight: 800;
+        font-family: "bungee", cursive;
+        @include lores {
+          font-size: 40px;
+          font-weight: 700;
+        }
+        @include mobile {
+          font-size: 32px;
+        }
+        @include xsmobile {
+          font-size: 28px;
+        }
+        text-align: center !important;
+      }
+    }
+    &__button {
+      user-select: none;
+      margin-top: 1em;
+      padding: 0 1em;
+      border: 2px solid $primaryColor;
+      border-radius: 2em;
+      background-color: $backgroundColor;
+      color: $primaryColor;
+      font-size: 32px;
+      font-weight: 700;
+      transition: all 100ms linear;
+      position: relative;
+      @include mobile {
+        font-size: 18px;
+        font-weight: 600;
+        padding: 0.2em 0.4em;
+      }
+      @include xsmobile {
+        font-size: 16px;
+        font-weight: 500;
+        padding: 0.2em 0.4em;
+      }
+      &:hover {
+        cursor: pointer;
+        box-shadow: 0 0 10px 5px $primaryColor, 0 0 7px 4px $secondaryColor;
+        text-shadow: 0 0 15px $secondaryColor, 0 0 3px $primaryColor;
+        color: $secondaryColor;
+        @include mobile {
+          box-shadow: 0 0 7px 3px $primaryColor, 0 0 5px 2px $secondaryColor;
+          text-shadow: 0 0 7px $secondaryColor, 0 0 2px $primaryColor;
+        }
+        @include xsmobile {
+          box-shadow: 0 0 7px 3px $primaryColor, 0 0 5px 2px $secondaryColor;
+          text-shadow: 0 0 7px $secondaryColor, 0 0 2px $primaryColor;
+        }
+        &::before {
+          opacity: 1;
+        }
+      }
+      &::before {
+        pointer-events: none;
+        content: "";
+        position: absolute;
+        top: 130%;
+        left: 0;
+        width: 100%;
+        height: 50%;
+        transition: all 75ms linear;
+        opacity: 0;
+        background: linear-gradient(
+          0deg,
+          $primaryColor 50%,
+          $secondaryColor 100%
+        );
+        transform: perspective(2em) rotateX(40deg) scale(0.7, 0.4);
+        filter: blur(1.5em);
+      }
+    }
+  }
+}
 .loading {
   width: 100%;
   height: 100%;
@@ -9,7 +140,7 @@
   left: 0;
   display: -webkit-box;
   display: -ms-flexbox;
-  display: flex;
+  display: none;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
@@ -23,8 +154,8 @@
   z-index: 50;
   background-color: $backgroundColor;
   opacity: 1;
-  -webkit-animation: fadeLoader 2000ms 3000ms 1 linear both;
-  animation: fadeLoader 2000ms 3000ms 1 linear both;
+  -webkit-animation: fadeLoader 1500ms 2500ms 1 linear both;
+  animation: fadeLoader 1500ms 2500ms 1 linear both;
 }
 
 .neon {
@@ -36,12 +167,81 @@
   position: absolute;
   top: 0;
   left: 0;
+  @include mobile {
+    display: none;
+  }
+  @include xsmobile {
+    display: none;
+  }
   &__logo {
     width: 33%;
     opacity: 0;
-    animation: neonStart 2500ms linear 1 both;
+    animation: neonStart 3000ms linear 1 both;
     img {
       width: 100%;
+    }
+  }
+}
+
+.burger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  background-color: $backgroundColor;
+  top: 0;
+  left: 0;
+  z-index: 15;
+  border: 2px solid $primaryColor;
+  border-radius: 0.5em;
+  width: 2.5em;
+  height: 2.5em;
+  margin: 0.6em;
+  animation: neonStart 3000ms linear 1 both;
+  @include mobile {
+    display: flex;
+  }
+  @include xsmobile {
+    display: flex;
+  }
+  &:hover {
+    cursor: pointer;
+  }
+  &__button {
+    width: 66%;
+    height: 66%;
+    position: relative;
+    overflow: hidden;
+    &__bar {
+      width: 100%;
+      height: 15%;
+      background-color: $primaryColor;
+      border-radius: 3em;
+      position: absolute;
+      transition: all 300ms linear;
+      &:nth-child(1) {
+        top: 0;
+      }
+      &:nth-child(2) {
+        top: 42.5%;
+        background-color: $secondaryColor;
+      }
+      &:nth-child(3) {
+        bottom: 0;
+      }
+    }
+    &__arrows {
+      width: 100%;
+      height: 70%;
+      color: $primaryColor;
+      text-align: center;
+      position: absolute;
+      top: -125%;
+      transition: all 300ms linear;
+      .activeArrows {
+        top: 0;
+      }
     }
   }
 }
@@ -61,6 +261,16 @@
   transition: all 3000ms ease-in;
   -webkit-animation: loader 1500ms linear infinite both;
   animation: loader 1500ms linear infinite both;
+  @include mobile {
+    width: 250px;
+    height: 250px;
+    margin-top: 30%;
+  }
+  @include xsmobile {
+    width: 250px;
+    height: 250px;
+    margin-top: 30%;
+  }
   &::before {
     width: 380px;
     height: 380px;
@@ -71,6 +281,14 @@
     background-color: transparent;
     border: 5px solid $backgroundColor;
     border-radius: 50%;
+    @include mobile {
+      width: 230px;
+      height: 230px;
+    }
+    @include xsmobile {
+      width: 230px;
+      height: 230px;
+    }
   }
   &__holes {
     width: 80px;
@@ -78,21 +296,61 @@
     background-color: $backgroundColor;
     border-radius: 50%;
     position: absolute;
+    @include mobile {
+      width: 50px;
+      height: 50px;
+    }
+    @include xsmobile {
+      width: 50px;
+      height: 50px;
+    }
     &:first-child {
       top: 20px;
       left: 160px;
+      @include mobile {
+        top: 30px;
+        left: 100px;
+      }
+      @include xsmobile {
+        top: 30px;
+        left: 100px;
+      }
     }
     &:nth-child(2) {
       top: 160px;
       right: 20px;
+      @include mobile {
+        top: 100px;
+        right: 30px;
+      }
+      @include xsmobile {
+        top: 100px;
+        right: 30px;
+      }
     }
     &:nth-child(3) {
       bottom: 20px;
       left: 160px;
+      @include mobile {
+        bottom: 30px;
+        left: 100px;
+      }
+      @include xsmobile {
+        bottom: 30px;
+        left: 100px;
+      }
     }
     &:nth-child(4) {
       left: 20px;
       top: 160px;
+      @include mobile {
+        left: 30px;
+        top: 100px;
+      }
+      @include xsmobile {
+        left: 30px;
+        top: 100px;
+      }
     }
   }
   .centerhole {
@@ -104,5 +362,15 @@
     top: 50%;
     left: 50%;
     border-radius: 50%;
+    @include mobile {
+      width: 20px;
+      height: 20px;
+      margin: -10px 0 0 -10px;
+    }
+    @include xsmobile {
+      width: 20px;
+      height: 20px;
+      margin: -10px 0 0 -10px;
+    }
   }
 }

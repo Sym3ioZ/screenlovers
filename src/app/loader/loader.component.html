@@ -1,7 +1,33 @@
-<div class="loading">
+<div class="disclaimer" id="disclaimer">
+  <div class="disclaimer__block">
+    <div class="disclaimer__block__message">
+      <h1>MESSAGE IMPORTANT !</h1>
+      <p>
+        Ce site propose du contenu lié à l'univers du cinéma, qui peut par
+        conséquent être explicite (violence, nudité, ...), et éventuellement
+        heurter la sensibilité des plus jeunes.
+      </p>
+    </div>
+    <div class="disclaimer__block__button" (click)="enterSite()">
+      ENTRER SUR LE SITE
+    </div>
+  </div>
+</div>
+
+<div class="loading" id="loading">
   <div class="neon">
     <div class="neon__logo">
       <img src="../../assets/logo_screenlovers.png" />
+    </div>
+  </div>
+  <div class="burger">
+    <div class="burger__button">
+      <div class="burger__button__bar" id="bar1"></div>
+      <div class="burger__button__bar" id="bar2"></div>
+      <div class="burger__button__bar" id="bar3"></div>
+      <div class="burger__button__arrows" id="burgerArrows">
+        <i class="fa-solid fa-down-left-and-up-right-to-center"></i>
+      </div>
     </div>
   </div>
   <div class="loader">

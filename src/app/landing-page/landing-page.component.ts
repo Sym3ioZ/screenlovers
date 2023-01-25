@@ -10,12 +10,13 @@ import { ServicesService } from '../services.service';
 })
 export class LandingPageComponent implements OnInit {
   randomMovie$!: Observable<any>;
-  randomNumber: number = Math.floor(Math.random() * 10);
+  randomNumber!: number;
   yearGap!: number; //Gap calculated to display 'Released X years ago'
   posterUrl: string = 'https://image.tmdb.org/t/p/w500'; // Base URL to retrieve images, such as posters
   constructor(private service: ServicesService, private router: Router) {}
 
   ngOnInit(): void {
+    this.randomNumber = Math.floor(Math.random() * 10);
     this.randomMovie$ = this.service.getRandomMovie(); // Assigning a random movie to the observable
     this.yearGap = new Date().getFullYear() - this.service.randomYear;
   }

@@ -18,6 +18,7 @@ export class ViewImageComponent implements OnInit {
   imageUrl!: string;
 
   ngOnInit(): void {
+    window.scrollTo({ top: 0 });
     this.imageUrl = this.route.snapshot.params['imageUrl']; // Retrieving imageUrl from URL parameters
   }
 

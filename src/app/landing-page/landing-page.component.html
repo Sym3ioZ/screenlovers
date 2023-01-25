@@ -8,8 +8,8 @@
       <img
         class="landing-page__randomMovie__poster__image"
         [src]="
-          movie.results[randomNumber].poster_path
-            ? posterUrl + movie.results[randomNumber].poster_path
+          movie[randomNumber].poster_path
+            ? posterUrl + movie[randomNumber].poster_path
             : '../../assets/default_poster.png'
         "
       />
@@ -17,7 +17,7 @@
     <!-- Short description (title, release date) -->
     <div class="landing-page__randomMovie__description">
       <h3 class="landing-page__randomMovie__description__title">
-        {{ movie.results[randomNumber].title }}
+        {{ movie[randomNumber].title }}
       </h3>
       <h4 class="landing-page__randomMovie__description__date">
         Sorti il y a {{ yearGap }} ans.
@@ -27,7 +27,7 @@
         <!-- Access to the single movie page associated to the featured movie -->
         <div
           class="landing-page__randomMovie__description__buttons__unique"
-          (click)="onGetMoviePage(movie.results[randomNumber].id)"
+          (click)="onGetMoviePage(movie[randomNumber].id)"
         >
           <i class="fa-solid fa-file-lines"></i>
           <p>Fiche du film</p>
