@@ -3,7 +3,7 @@
 
 .landing-page {
   width: 100%;
-  padding: 10% 0 0 0;
+  padding: 12% 0 7% 0;
   @include smalldesk {
     padding: 15% 0;
   }
@@ -39,73 +39,16 @@
     -ms-flex-direction: row;
     flex-direction: row;
     background-color: $primaryColor;
-    padding: 0 75px;
+    padding: 0;
     position: relative;
     overflow: hidden;
-    @include lores {
-      padding: 0 50px;
-    }
     @include mobile {
-      padding: 40px 0;
       flex-direction: column;
       align-items: center;
     }
     @include xsmobile {
-      padding: 40px 0;
       flex-direction: column;
       align-items: center;
-    }
-    &__leftPick {
-      position: absolute;
-      top: 25%;
-      left: -55px;
-      background-color: $backgroundColor;
-      border-radius: 50%;
-      width: 100px;
-      height: 50%;
-      @include lores {
-        width: 85px;
-      }
-      @include mobile {
-        width: 90px;
-        height: 35%;
-        transform: rotate(90deg);
-        top: -20%;
-        left: 39%;
-      }
-      @include xsmobile {
-        width: 90px;
-        height: 35%;
-        transform: rotate(90deg);
-        top: -20%;
-        left: 39%;
-      }
-    }
-    &__rightPick {
-      position: absolute;
-      top: 25%;
-      right: -55px;
-      background-color: $backgroundColor;
-      border-radius: 50%;
-      width: 100px;
-      height: 50%;
-      @include lores {
-        width: 85px;
-      }
-      @include mobile {
-        width: 90px;
-        height: 35%;
-        transform: rotate(-90deg);
-        top: 85%;
-        left: 39%;
-      }
-      @include xsmobile {
-        width: 90px;
-        height: 35%;
-        transform: rotate(-90deg);
-        top: 85%;
-        left: 39%;
-      }
     }
     &__poster {
       width: 25%;

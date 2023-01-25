@@ -100,84 +100,23 @@
     -ms-flex-direction: row;
     flex-direction: row;
     background-color: $primaryColor;
-    padding: 0 75px;
+    padding: 0 10px 0 0;
     position: relative;
     overflow: hidden;
     @include lores {
-      padding: 70px 0;
+      padding: 0 10px 0 0;
       align-items: flex-start;
     }
     @include mobile {
-      padding: 70px 0;
+      padding: 10px 0;
       align-items: center;
       flex-direction: column;
     }
     @include xsmobile {
-      padding: 50px 0;
+      padding: 10px 0;
       align-items: center;
       flex-direction: column;
     }
-    &__leftPick {
-      position: absolute;
-      top: 25%;
-      left: -55px;
-      background-color: $backgroundColor;
-      border-radius: 50%;
-      width: 100px;
-      height: 50%;
-      @include lores {
-        width: 90px;
-        height: 40%;
-        transform: rotate(90deg);
-        top: -20%;
-        left: 45%;
-      }
-      @include mobile {
-        width: 75px;
-        height: 30%;
-        transform: rotate(90deg);
-        top: -16%;
-        left: 40%;
-      }
-      @include xsmobile {
-        width: 75px;
-        height: 25%;
-        transform: rotate(90deg);
-        top: -13.5%;
-        left: 38%;
-      }
-    }
-    &__rightPick {
-      position: absolute;
-      top: 25%;
-      right: -55px;
-      background-color: $backgroundColor;
-      border-radius: 50%;
-      width: 100px;
-      height: 50%;
-      @include lores {
-        width: 90px;
-        height: 40%;
-        transform: rotate(-90deg);
-        top: 80%;
-        left: 45%;
-      }
-      @include mobile {
-        width: 75px;
-        height: 30%;
-        transform: rotate(-90deg);
-        top: 86%;
-        left: 40%;
-      }
-      @include xsmobile {
-        width: 75px;
-        height: 25%;
-        transform: rotate(-90deg);
-        top: 88.5%;
-        left: 38%;
-      }
-    }
-
     &__poster {
       width: 25%;
       border-right: dashed 8px $backgroundColor;
@@ -309,6 +248,7 @@
         -webkit-box-direction: normal;
         -ms-flex-direction: column;
         flex-direction: column;
+        flex-wrap: wrap;
         -webkit-box-pack: justify;
         -ms-flex-pack: justify;
         justify-content: space-between;
@@ -330,10 +270,12 @@
           -ms-flex-align: center;
           align-items: center;
           -ms-flex-pack: distribute;
-          justify-content: space-around;
+          justify-content: center;
+          gap: 1em;
           margin: 1em 0;
           &__list {
-            width: 15%;
+            width: fit-content;
+            max-width: 15%;
             display: -webkit-box;
             display: -ms-flexbox;
             display: flex;
@@ -342,31 +284,11 @@
             -ms-flex-direction: row;
             flex-direction: row;
             flex-wrap: wrap;
-            gap: 0.5em;
             -webkit-box-pack: center;
             -ms-flex-pack: center;
             justify-content: center;
             img {
               width: 100%;
-            }
-            p {
-              font-size: 18px;
-              font-weight: 500;
-              text-align: center;
-              @include smalldesk {
-                font-size: 16px;
-              }
-              @include lores {
-                font-size: 16px;
-              }
-              @include mobile {
-                font-size: 12px;
-                font-weight: 400;
-              }
-              @include xsmobile {
-                font-size: 12px;
-                font-weight: 400;
-              }
             }
           }
         }
@@ -642,10 +564,15 @@
   &__media {
     width: 100%;
     padding: 0 15px;
-    background-color: $backgroundColor;
     margin: 25px 0;
     display: flex;
     flex-direction: column;
+    @include mobile {
+      padding: 0 0;
+    }
+    @include xsmobile {
+      padding: 0 0;
+    }
     &__block {
       width: 100%;
       display: flex;
@@ -1015,49 +942,43 @@
     }
   }
   &__tmdbLink {
-    margin: 5em 0 -3em 3em;
-    width: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+    width: fit-content;
+    margin: 5em 0 0 2em;
     color: white;
     font-size: 20px;
     @include smalldesk {
       font-size: 14px;
     }
     @include lores {
-      width: 60%;
       font-size: 14px;
-      margin: 3em 0 -3em 3em;
     }
     @include mobile {
-      width: 70%;
       font-size: 12px;
-      margin: 3em 0 -3em 3em;
     }
     @include xsmobile {
-      width: 80%;
       font-size: 12px;
-      margin: 3em 0 -3em 2em;
     }
     font-weight: 500;
-    display: flex;
-    flex-direction: row;
-    justify-content: left;
-    align-items: center;
     &__logo {
       margin-left: 1em;
       border-radius: 2em;
       padding: 0.2em 0.3em;
-      width: 12%;
+      width: 150px;
       @include smalldesk {
-        width: 15%;
+        width: 100px;
       }
       @include lores {
-        width: 25%;
+        width: 100px;
       }
       @include mobile {
-        width: 30%;
+        width: 80px;
       }
       @include xsmobile {
-        width: 30%;
+        width: 80px;
       }
       display: flex;
       flex-direction: row;

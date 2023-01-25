@@ -10,10 +10,13 @@
         <p *ngIf="!people.profile_path">Aucune photo disponible</p>
       </div>
       <div class="singlePeople__block__card__description">
-        <p *ngIf="people.birthday">
-          Naissance: {{ people.birthday | date : "d MMMM yyyy" }}
+        <p *ngIf="people.birthday && people.gender === 2">
+          Né le: {{ people.birthday | date : "d MMMM yyyy" }}
         </p>
-        <p *ngIf="people.place_of_birth">Lieu: {{ people.place_of_birth }}</p>
+        <p *ngIf="people.birthday && people.gender != 2">
+          Née le: {{ people.birthday | date : "d MMMM yyyy" }}
+        </p>
+        <p *ngIf="people.place_of_birth">{{ people.place_of_birth }}</p>
         <p *ngIf="people.deathday">
           Décès: {{ people.deathday | date : "d MMMM yyyy" }}
         </p>
