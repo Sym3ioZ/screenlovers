@@ -6,7 +6,8 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "build-github-prod": "ng build screenlovers -c production && cd docs && copy index.html 404.html"
   },
   "private": true,
   "dependencies": {
