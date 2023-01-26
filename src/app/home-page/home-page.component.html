@@ -1,7 +1,7 @@
 <div class="home">
   <!-- Main logo on home -->
   <div class="home__logo">
-    <img src="../../assets/logo_screenlovers.png" />
+    <img src="assets/logo_screenlovers.png" />
     <h1>(Re)découvrez le cinéma</h1>
   </div>
 
@@ -48,7 +48,11 @@
             (click)="onGetMovie(movie.id)"
           >
             <img
-              [src]="posterUrl + movie.poster_path"
+              [src]="
+                movie.poster_path
+                  ? posterUrl + movie.poster_path
+                  : 'assets/default_poster.png'
+              "
               class="home__trending__content__list__unique__poster__image"
               [title]="movie.title"
             />
@@ -77,7 +81,7 @@
               [src]="
                 people.profile_path
                   ? posterUrl + people.profile_path
-                  : '../assets/default_profile.png'
+                  : 'assets/default_profile.png'
               "
               class="home__trending__content__list__unique__poster__image"
               [title]="people.name"

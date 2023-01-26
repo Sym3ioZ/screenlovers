@@ -20,7 +20,7 @@
         [src]="
           movie.poster_path
             ? posterUrl + movie.poster_path
-            : '../../assets/default_poster.png'
+            : 'assets/default_poster.png'
         "
       />
       <!-- Determining the star icons to display from the average vote -->
@@ -82,9 +82,7 @@
         <div class="singleMovie__block__description__countries__list">
           <div *ngFor="let country of movie.production_countries">
             <img
-              [src]="
-                '../../assets/flags/128x128/' + country.iso_3166_1 + '.png'
-              "
+              [src]="'assets/flags/128x128/' + country.iso_3166_1 + '.png'"
               title="{{ country.name }}"
             />
           </div>
@@ -123,7 +121,7 @@
                 [src]="
                   movieCrewMember.profile_path
                     ? posterUrl + movieCrewMember.profile_path
-                    : '../../assets/default_profile.png'
+                    : 'assets/default_profile.png'
                 "
               />
             </div>
@@ -164,7 +162,7 @@
                 [src]="
                   movieWriter.profile_path
                     ? posterUrl + movieWriter.profile_path
-                    : '../../assets/default_profile.png'
+                    : 'assets/default_profile.png'
                 "
               />
             </div>
@@ -212,7 +210,7 @@
                 [src]="
                   movieCast.profile_path
                     ? posterUrl + movieCast.profile_path
-                    : '../../assets/default_profile.png'
+                    : 'assets/default_profile.png'
                 "
               />
             </div>
@@ -292,7 +290,7 @@
             [src]="
               movieTrailer.length > 0
                 ? (trailerUrl + movieTrailer[0].key | safe)
-                : ('../../assets/unavailable_video.png' | safe)
+                : ('assets/unavailable_video.png' | safe)
             "
             frameBorder="0"
             allowfullscreen
@@ -361,7 +359,7 @@
       [href]="'https://www.themoviedb.org/movie/' + movie.id"
       target="_blank"
     >
-      <img src="../../assets/logo_tmdb.svg" alt="tmdb logo" />
+      <img src="assets/logo_tmdb.svg" alt="tmdb logo" />
     </a>
   </div>
 </div>

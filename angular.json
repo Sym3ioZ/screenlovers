@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "baseHref": "./screenlovers",
+            "baseHref": "./",
             "outputPath": "docs",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -30,18 +30,6 @@
           },
           "configurations": {
             "production": {
-              "budgets": [
-                {
-                  "type": "initial",
-                  "maximumWarning": "5000kb",
-                  "maximumError": "10mb"
-                },
-                {
-                  "type": "anyComponentStyle",
-                  "maximumWarning": "10kb",
-                  "maximumError": "4000kb"
-                }
-              ],
               "outputHashing": "all"
             },
             "development": {
