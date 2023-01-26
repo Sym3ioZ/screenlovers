@@ -6,7 +6,8 @@ footer {
   position: absolute;
   bottom: 0;
   padding-top: 50px;
-  box-shadow: 0px -100px 25px -75px $primaryColor inset;
+  padding-bottom: 0.5em;
+  box-shadow: 0px -120px 25px -75px $primaryColor inset;
   @include mobile {
     background-color: $primaryColor;
     box-shadow: 150px -0px 50px -75px $backgroundColor inset,
@@ -16,8 +17,8 @@ footer {
   @include xsmobile {
     background-color: $primaryColor;
     padding-top: 0;
-    box-shadow: 150px -0px 50px -75px $backgroundColor inset,
-      -150px -0px 50px -75px $backgroundColor inset;
+    box-shadow: 120px -0px 50px -75px $backgroundColor inset,
+      -120px -0px 50px -75px $backgroundColor inset;
   }
 }
 .navmenu {
@@ -40,13 +41,37 @@ footer {
     @include mobile {
       flex-direction: column;
       justify-content: center;
+      gap: 0.5em;
     }
     @include xsmobile {
       flex-direction: column;
       justify-content: center;
     }
+    .social > a {
+      width: fit-content;
+      background-color: transparent;
+      color: $backgroundColor;
+      text-decoration: none;
+      font-size: 32px;
+      transform: scale(1);
+      transition: all 100ms ease-out;
+      padding: 0;
+      @include mobile {
+        font-size: 28px;
+      }
+      &:first-child {
+        margin-right: 1em;
+        @include lores {
+          margin-right: 0.5em;
+        }
+      }
+      &:hover {
+        color: $secondaryColor;
+        transform: scale(1.05);
+      }
+    }
     &__unique {
-      width: 30%;
+      // width: 30%;
       color: $backgroundColor;
       font-weight: 500;
       font-size: 20px;
@@ -100,6 +125,7 @@ footer {
         display: flex;
         flex-direction: row;
         justify-content: center;
+        text-decoration: none;
         align-items: center;
         transition: all 100ms linear;
         &:hover {

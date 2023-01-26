@@ -6,6 +6,9 @@
   font-family: "Sono", monospace;
   margin: 0;
   line-height: $lineHeight;
+  // Firefox custom scrollbar
+  scrollbar-width: thin;
+  scrollbar-color: $primaryColor $backgroundColor;
 }
 
 body {

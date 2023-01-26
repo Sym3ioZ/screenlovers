@@ -309,9 +309,11 @@
       }
       @include mobile {
         font-size: 12px;
+        margin-bottom: 5em;
       }
       @include xsmobile {
         font-size: 12px;
+        margin-bottom: 5em;
       }
       font-weight: 500;
       &__logo {

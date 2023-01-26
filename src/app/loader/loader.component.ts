@@ -6,8 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./loader.component.scss'],
 })
 export class LoaderComponent {
-  enterSite(): void {
-    document.getElementById('disclaimer')!.style.display = 'none';
-    document.getElementById('loading')!.style.display = 'flex';
-  }
+  // enterSite(): void {
+  //   document.getElementById('disclaimer')!.style.display = 'none';
+  //   document.getElementById('loading')!.style.display = 'flex';
+  // }
 }
