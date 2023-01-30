@@ -459,6 +459,12 @@
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
+        @include mobile {
+          justify-content: center;
+        }
+        @include xsmobile {
+          justify-content: center;
+        }
         &__unique {
           &__card {
             width: 150px;

@@ -138,7 +138,7 @@ export class ServicesService {
     // Fetching TMDB API to get a list of movies released within the gap defined, and with a minimum average note
     return this.http
       .get<any>(
-        `https://api.themoviedb.org/3/discover/movie?api_key=032445021a055e1fc596f3292981c16d&language=fr-FR&primary_release_year=${this.randomYear}&vote_count.gte=2&include_adult=false&without_keywords=softcore|hardcore|porn|porno|erotic|sex|sexual|erotica|gay`
+        `https://api.themoviedb.org/3/discover/movie?api_key=032445021a055e1fc596f3292981c16d&language=fr-FR&primary_release_year=${this.randomYear}&watch_region=FR&include_adult=false&include_video=true&with_original_language=fr|en&without_keywords=softcore|hardcore|porn|porno|erotic|sex|sexual|erotica|gay`
       )
       .pipe(
         map((value) => value.results),
