@@ -24,7 +24,9 @@ export class ViewImageComponent implements OnInit {
 
   // On clicking download button, funtion to create download url, then simulate an "a" tag with download action automatically
   downloadPoster() {
-    fetch('https://proxy.cors.sh/' + this.posterUrl + this.imageUrl)
+    fetch(this.posterUrl + this.imageUrl, {
+      headers: { 'Access-Control-Allow-Origin': '*' },
+    })
       .then((res) => res.blob())
       .then((file) => {
         let tempUrl = URL.createObjectURL(file);
@@ -34,6 +36,11 @@ export class ViewImageComponent implements OnInit {
         document.body.appendChild(aTag);
         aTag.click();
         aTag.remove();
+      })
+      .catch((error) => {
+        alert(
+          "Erreur serveur: réessayez plus tard ou clic droit et 'enregistrer l'image sous.'"
+        );
       });
   }
 
