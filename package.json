@@ -7,7 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "build-github-prod": "ng build -c production && cd docs && copy index.html 404.html && echo 'screenlovers.fr'>CNAME"
+    "build-github-prod": "ng build -c production && cd docs && copy index.html 404.html && echo 'www.screenlovers.fr'>CNAME"
   },
   "private": true,
   "dependencies": {
