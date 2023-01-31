@@ -2,136 +2,136 @@
 @import "../../variables";
 @import "../../keyframes";
 
-// .disclaimer {
-//   width: 100%;
-//   height: 100%;
-//   z-index: 100;
-//   position: fixed;
-//   top: 0;
-//   left: 0;
-//   background-color: $backgroundColor;
-//   text-align: center;
-//   display: flex;
-//   flex-direction: column;
-//   justify-content: center;
-//   align-items: center;
-//   &__block {
-//     width: 75%;
-//     border: double 6px $secondaryColor;
-//     border-radius: 3em;
-//     padding: 2em 2em 5em 2em;
-//     display: flex;
-//     flex-direction: column;
-//     justify-content: center;
-//     align-items: center;
-//     box-shadow: 0 0 15px 5px $primaryColor, 0 0 5px 2px $secondaryColor;
-//     @include mobile {
-//       width: 85%;
-//       padding: 2em 0.3em 5em 0.3em;
-//       box-shadow: 0 0 7px 3px $primaryColor, 0 0 5px 2px $secondaryColor;
-//     }
-//     @include xsmobile {
-//       width: 90%;
-//       padding: 2em 0.3em 5em 0.3em;
-//       box-shadow: 0 0 7px 3px $primaryColor, 0 0 5px 2px $secondaryColor;
-//     }
-//     &__message {
-//       width: 100%;
-//       p {
-//         color: $primaryColor;
-//         font-size: 32px;
-//         text-align: justify;
-//         margin-bottom: 0.5em;
-//         @include lores {
-//           font-size: 28px;
-//         }
-//         @include mobile {
-//           font-size: 16px;
-//         }
-//         @include xsmobile {
-//           font-size: 14px;
-//         }
-//       }
+.disclaimer {
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: $backgroundColor;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  &__block {
+    width: 75%;
+    border: double 6px $secondaryColor;
+    border-radius: 3em;
+    padding: 2em 2em 5em 2em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 15px 5px $primaryColor, 0 0 5px 2px $secondaryColor;
+    @include mobile {
+      width: 85%;
+      padding: 2em 0.3em 5em 0.3em;
+      box-shadow: 0 0 7px 3px $primaryColor, 0 0 5px 2px $secondaryColor;
+    }
+    @include xsmobile {
+      width: 90%;
+      padding: 2em 0.3em 5em 0.3em;
+      box-shadow: 0 0 7px 3px $primaryColor, 0 0 5px 2px $secondaryColor;
+    }
+    &__message {
+      width: 100%;
+      p {
+        color: $primaryColor;
+        font-size: 32px;
+        text-align: justify;
+        margin-bottom: 0.5em;
+        @include lores {
+          font-size: 28px;
+        }
+        @include mobile {
+          font-size: 16px;
+        }
+        @include xsmobile {
+          font-size: 14px;
+        }
+      }
 
-//       h1 {
-//         color: $secondaryColor;
-//         margin-bottom: 0.5em;
-//         font-size: 52px;
-//         font-weight: 800;
-//         font-family: "bungee", cursive;
-//         @include lores {
-//           font-size: 40px;
-//           font-weight: 700;
-//         }
-//         @include mobile {
-//           font-size: 32px;
-//         }
-//         @include xsmobile {
-//           font-size: 28px;
-//         }
-//         text-align: center !important;
-//       }
-//     }
-//     &__button {
-//       user-select: none;
-//       margin-top: 1em;
-//       padding: 0 1em;
-//       border: 2px solid $primaryColor;
-//       border-radius: 2em;
-//       background-color: $backgroundColor;
-//       color: $primaryColor;
-//       font-size: 32px;
-//       font-weight: 700;
-//       transition: all 100ms linear;
-//       position: relative;
-//       @include mobile {
-//         font-size: 18px;
-//         font-weight: 600;
-//         padding: 0.2em 0.4em;
-//       }
-//       @include xsmobile {
-//         font-size: 16px;
-//         font-weight: 500;
-//         padding: 0.2em 0.4em;
-//       }
-//       &:hover {
-//         cursor: pointer;
-//         box-shadow: 0 0 10px 5px $primaryColor, 0 0 7px 4px $secondaryColor;
-//         text-shadow: 0 0 15px $secondaryColor, 0 0 3px $primaryColor;
-//         color: $secondaryColor;
-//         @include mobile {
-//           box-shadow: 0 0 7px 3px $primaryColor, 0 0 5px 2px $secondaryColor;
-//           text-shadow: 0 0 7px $secondaryColor, 0 0 2px $primaryColor;
-//         }
-//         @include xsmobile {
-//           box-shadow: 0 0 7px 3px $primaryColor, 0 0 5px 2px $secondaryColor;
-//           text-shadow: 0 0 7px $secondaryColor, 0 0 2px $primaryColor;
-//         }
-//         &::before {
-//           opacity: 1;
-//         }
-//       }
-//       &::before {
-//         pointer-events: none;
-//         content: "";
-//         position: absolute;
-//         top: 130%;
-//         left: 0;
-//         width: 100%;
-//         height: 50%;
-//         transition: all 75ms linear;
-//         opacity: 0;
-//         background: linear-gradient(
-//           0deg,
-//           $primaryColor 50%,
-//           $secondaryColor 100%
-//         );
-//         transform: perspective(2em) rotateX(40deg) scale(0.7, 0.4);
-//         filter: blur(1.5em);
-//       }
-//     }
-//   }
-// }
+      h1 {
+        color: $secondaryColor;
+        margin-bottom: 0.5em;
+        font-size: 52px;
+        font-weight: 800;
+        font-family: "bungee", cursive;
+        @include lores {
+          font-size: 40px;
+          font-weight: 700;
+        }
+        @include mobile {
+          font-size: 32px;
+        }
+        @include xsmobile {
+          font-size: 28px;
+        }
+        text-align: center !important;
+      }
+    }
+    &__button {
+      user-select: none;
+      margin-top: 1em;
+      padding: 0 1em;
+      border: 2px solid $primaryColor;
+      border-radius: 2em;
+      background-color: $backgroundColor;
+      color: $primaryColor;
+      font-size: 32px;
+      font-weight: 700;
+      transition: all 100ms linear;
+      position: relative;
+      @include mobile {
+        font-size: 18px;
+        font-weight: 600;
+        padding: 0.2em 0.4em;
+      }
+      @include xsmobile {
+        font-size: 16px;
+        font-weight: 500;
+        padding: 0.2em 0.4em;
+      }
+      &:hover {
+        cursor: pointer;
+        box-shadow: 0 0 10px 5px $primaryColor, 0 0 7px 4px $secondaryColor;
+        text-shadow: 0 0 15px $secondaryColor, 0 0 3px $primaryColor;
+        color: $secondaryColor;
+        @include mobile {
+          box-shadow: 0 0 7px 3px $primaryColor, 0 0 5px 2px $secondaryColor;
+          text-shadow: 0 0 7px $secondaryColor, 0 0 2px $primaryColor;
+        }
+        @include xsmobile {
+          box-shadow: 0 0 7px 3px $primaryColor, 0 0 5px 2px $secondaryColor;
+          text-shadow: 0 0 7px $secondaryColor, 0 0 2px $primaryColor;
+        }
+        &::before {
+          opacity: 1;
+        }
+      }
+      &::before {
+        pointer-events: none;
+        content: "";
+        position: absolute;
+        top: 130%;
+        left: 0;
+        width: 100%;
+        height: 50%;
+        transition: all 75ms linear;
+        opacity: 0;
+        background: linear-gradient(
+          0deg,
+          $primaryColor 50%,
+          $secondaryColor 100%
+        );
+        transform: perspective(2em) rotateX(40deg) scale(0.7, 0.4);
+        filter: blur(1.5em);
+      }
+    }
+  }
+}
 .loading {
   width: 100%;
   height: 100%;
@@ -140,7 +140,7 @@
   left: 0;
   display: -webkit-box;
   display: -ms-flexbox;
-  display: flex;
+  display: none;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
@@ -154,8 +154,8 @@
   z-index: 50;
   background-color: $backgroundColor;
   opacity: 1;
-  -webkit-animation: fadeLoader 1500ms 2500ms 1 linear both;
-  animation: fadeLoader 1500ms 2500ms 1 linear both;
+  -webkit-animation: fadeLoader 1500ms 2000ms 1 linear both;
+  animation: fadeLoader 1500ms 2000ms 1 linear both;
 }
 
 .neon {
@@ -176,7 +176,7 @@
   &__logo {
     width: 33%;
     opacity: 0;
-    animation: neonStart 3000ms linear 1 both;
+    animation: neonStart 2500ms linear 1 both;
     img {
       width: 100%;
     }
@@ -198,7 +198,7 @@
   width: 2.5em;
   height: 2.5em;
   margin: 0.6em;
-  animation: neonStart 3000ms linear 1 both;
+  animation: neonStart 2500ms linear 1 both;
   @include mobile {
     display: flex;
   }
@@ -258,7 +258,7 @@
   transform: rotate(0);
   -webkit-transition: all 3000ms ease-in;
   -o-transition: all 3000ms ease-in;
-  transition: all 3000ms ease-in;
+  transition: all 2500ms ease-in;
   -webkit-animation: loader 1500ms linear infinite both;
   animation: loader 1500ms linear infinite both;
   @include mobile {

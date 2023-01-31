@@ -17,7 +17,7 @@ export class ServicesService {
   getUniqueMovie(movieId: number): Observable<any> {
     // Fetching TMDB API to retrieve movie data from ID
     return this.http.get<object>(
-      `https://api.themoviedb.org/3/movie/${movieId}?api_key=032445021a055e1fc596f3292981c16d&language=fr-FR&include_adult=false`
+      `https://api.themoviedb.org/3/movie/${movieId}?api_key=032445021a055e1fc596f3292981c16d&language=fr-FR||en-US&include_adult=false`
     );
   }
 
@@ -70,7 +70,7 @@ export class ServicesService {
         ),
         map((fullArray) =>
           fullArray.filter(
-            (element: { vote_average: number }) => element.vote_average > 7
+            (element: { vote_average: number }) => element.vote_average >= 6
           )
         ),
         map((filteredArray) => filteredArray.slice(0, 6))
